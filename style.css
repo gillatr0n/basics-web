@@ -1,0 +1,323 @@
+/* Theme: shared colors keep text, links, and small highlights consistent. */
+:root {
+  --color-background: #f5f0e7;
+  --color-text: #26332f;
+  --color-accent: #a94334;
+  --color-muted: #5d635c;
+  --color-surface: #fffaf3;
+  --color-example: #eee2d5;
+  --color-line: #d8c4a4;
+}
+
+/* Foundations: readable system fonts and predictable element widths. */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.site-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.site-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+h1, h2, h3, p {
+  margin: 0 0 1rem;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: clamp(2rem, 3.5vw, 2.65rem);
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: clamp(1.55rem, 2.5vw, 1.95rem);
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: 1.15rem;
+}
+
+a {
+  color: var(--color-accent);
+  text-underline-offset: 0.22em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+section, main {
+  scroll-margin-top: 1.5rem;
+}
+
+.page-width {
+  width: 90%;
+  max-width: 1120px;
+  margin-inline: auto;
+}
+
+/* Header: all navigation stays visible and can wrap as needed. */
+.skip-link {
+  position: absolute;
+  top: -6rem;
+  left: 1rem;
+  z-index: 1;
+  padding: 0.6rem 1rem;
+  background: var(--color-text);
+  color: var(--color-background);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding-block: 1.3rem;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.site-name {
+  color: var(--color-text);
+  font-size: 1.45rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.3rem;
+}
+
+nav a {
+  padding-block: 0.3rem;
+  color: var(--color-text);
+  font-size: 0.88rem;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Introduction: the complete definition sits beside an uncropped real photograph. */
+.introduction {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: 3rem;
+  padding-block: 2.2rem;
+}
+
+.table-photo, .dice-photo {
+  margin: 0;
+}
+
+/* Content groups use spacing and reading widths instead of repeated divider lines. */
+.content-section {
+  padding-block: 1.7rem;
+}
+
+.reading-section {
+  max-width: 50rem;
+}
+
+.section-introduction {
+  max-width: 48rem;
+  margin-bottom: 1.5rem;
+}
+
+/* One subtle highlight distinguishes the concrete castle example from its explanation. */
+.castle-example {
+  padding: 1.3rem 1.5rem 0.3rem;
+  margin-block: 1.5rem;
+  background: var(--color-surface);
+}
+
+/* Parallel adventure activities share a grid without individual boxes. */
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+}
+
+.activity-grid h3 {
+  margin-bottom: 0.65rem;
+  color: var(--color-accent);
+}
+
+.campaign-note {
+  max-width: 55rem;
+  margin-top: 0.5rem;
+}
+
+/* Character data belongs in a table. Subtle row rules support comparison. */
+.character-table {
+  width: 100%;
+  max-width: 50rem;
+  margin-top: 1.4rem;
+  border-collapse: collapse;
+}
+
+.character-table caption {
+  padding-bottom: 0.65rem;
+  color: var(--color-muted);
+  font-size: 0.87rem;
+  text-align: left;
+}
+
+.character-table th, .character-table td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--color-line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.character-table th {
+  font-weight: 600;
+}
+
+.character-table thead th {
+  background: var(--color-surface);
+  color: var(--color-accent);
+}
+
+/* Dice: the explanation stays first in the reading order, followed by the photograph. */
+.dice-section {
+  display: grid;
+  grid-template-columns: 1.25fr 0.85fr;
+  align-items: center;
+  gap: 3rem;
+}
+
+.roll-example {
+  padding: 0.8rem 1rem;
+  background: var(--color-example);
+}
+
+/* Official resources follow the essentials in the same comfortable reading width. */
+.getting-started {
+  max-width: 50rem;
+}
+
+/* Native list markers show sequence for ol and simple grouping for ul. */
+.gameplay-steps, .session-checklist, .beginner-resources ul {
+  margin: 0 0 1rem;
+  padding-left: 1.2rem;
+}
+
+.gameplay-steps li, .session-checklist li, .beginner-resources li {
+  margin-bottom: 0.7rem;
+}
+
+.beginner-resources {
+  margin-top: 1.2rem;
+  padding: 1.3rem 1.3rem 0.3rem;
+  background: var(--color-surface);
+}
+
+.beginner-resources p, .beginner-resources li {
+  font-size: 0.9rem;
+}
+
+/* A small footer follows the article without adding another content panel. */
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 2rem;
+  padding-block: 1.5rem;
+  font-size: 0.76rem;
+}
+
+.site-footer p {
+  max-width: 45rem;
+  margin-bottom: 0;
+}
+
+.site-footer > a {
+  flex-shrink: 0;
+}
+
+/* Responsive changes: stack related content when side-by-side text gets cramped. */
+@media (max-width: 900px) {
+  .site-header {
+    align-items: start;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .introduction, .dice-section {
+    gap: 1.8rem;
+  }
+
+  .activity-grid {
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .introduction, .activity-grid, .dice-section {
+    grid-template-columns: 1fr;
+  }
+
+  .introduction {
+    padding-block: 1.5rem;
+  }
+
+  .content-section {
+    padding-block: 1.3rem;
+  }
+
+  .castle-example {
+    padding-inline: 1rem;
+  }
+
+  .character-table {
+    font-size: 0.92rem;
+  }
+
+  .character-table th, .character-table td {
+    padding: 0.6rem 0.5rem;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+}
