@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="start-here.js" defer></script>
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 </head>
 <body id="top" class="onboarding-page">
@@ -106,16 +107,38 @@
           </ol>
           <p class="loop-return"><span aria-hidden="true">↳</span> A new situation gives you another choice. The story keeps moving.</p>
 
-          <div class="encounter-stage dark-surface">
-            <div class="encounter-scene">
-              <img src="images/castle-door.webp" srcset="images/castle-door-small.webp 768w, images/castle-door.webp 1536w" sizes="(max-width: 1000px) 88vw, (max-width: 1363px) calc(88vw - 228px), 972px" width="1536" height="1024" loading="lazy" alt="A closed oak door with a keyhole beneath a weathered stone arch, with a narrow window beside it.">
-              <p class="encounter-scene-caption"><span class="eyebrow">Encounter 01</span>At the threshold</p>
+          <div id="castle-encounter" class="encounter-stage dark-surface">
+            <div class="encounter-setting">
+              <div class="encounter-scene">
+                <img src="images/castle-door.webp" srcset="images/castle-door-small.webp 768w, images/castle-door.webp 1536w" sizes="(max-width: 1000px) 88vw, (max-width: 1363px) calc(88vw - 228px), 972px" width="1536" height="1024" loading="lazy" alt="A closed oak door with a keyhole beneath a weathered stone arch, with a narrow window beside it.">
+                <p class="encounter-scene-caption"><span class="eyebrow">Encounter 01</span>At the threshold</p>
+              </div>
+              <div class="encounter-copy">
+                <p class="eyebrow">The Dungeon Master sets the scene</p>
+                <h3>The door is locked.<br>Your options aren't.</h3>
+                <p>Your group reaches an old castle. The heavy door is locked, and a narrow window overlooks the steps. What do you do?</p>
+                <p id="encounter-fallback" class="encounter-prompt">A knock might bring someone to the door. A search could reveal a clue. Your party can discuss a plan, too. The DM describes what happens next, using rules or dice when needed. You can suggest other actions as well.</p>
+              </div>
             </div>
-            <div class="encounter-copy">
-              <p class="eyebrow">The Dungeon Master sets the scene</p>
-              <h3>The door is locked.<br>Your options aren't.</h3>
-              <p>Your group reaches an old castle. The heavy door is closed, and a narrow window overlooks the steps. What do you do?</p>
-              <p class="encounter-prompt">Describe what your character tries. Your choice moves the story forward.</p>
+
+            <!-- Only reveal working controls after the script attaches their listeners. -->
+            <div id="encounter-interactive" class="encounter-interactive" hidden>
+              <p class="eyebrow">Your move</p>
+              <h4 id="encounter-choice-heading">What do you try?</h4>
+              <div class="encounter-choices" role="group" aria-labelledby="encounter-choice-heading">
+                <button type="button" class="encounter-choice" data-choice="knock" aria-pressed="false" aria-controls="encounter-response"><span>Knock on the door</span><small aria-hidden="true">Selected</small></button>
+                <button type="button" class="encounter-choice" data-choice="search" aria-pressed="false" aria-controls="encounter-response"><span>Search for another entrance</span><small aria-hidden="true">Selected</small></button>
+                <button type="button" class="encounter-choice" data-choice="plan" aria-pressed="false" aria-controls="encounter-response"><span>Discuss a plan</span><small aria-hidden="true">Selected</small></button>
+              </div>
+
+              <!-- The whole short response is announced; focus stays on the chosen action. -->
+              <div id="encounter-response" class="encounter-response" role="status" aria-live="polite" aria-atomic="true">
+                <p class="eyebrow">A possible DM response</p>
+                <h4 id="encounter-response-title">The next moment starts with you.</h4>
+                <p id="encounter-response-story">Choose an approach above to see one way the Dungeon Master might continue the scene.</p>
+                <p class="encounter-lesson"><strong>What this teaches</strong><span id="encounter-response-lesson">Your character's idea gives the DM something to respond to.</span></p>
+              </div>
+              <p class="encounter-freedom">You can suggest other actions, too. These are example outcomes; your DM and the situation may lead somewhere different. Try another approach here to compare.</p>
             </div>
           </div>
 

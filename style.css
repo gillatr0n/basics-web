@@ -984,6 +984,154 @@ main:focus-visible h1 {
   font-size: 0.8rem;
 }
 
+/* Working controls are revealed by start-here.js; the static setting stands alone. */
+.encounter-stage.is-interactive {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+}
+
+.encounter-setting, .encounter-interactive {
+  min-width: 0;
+}
+
+.is-interactive .encounter-scene img {
+  aspect-ratio: 4 / 3;
+  object-position: 64% center;
+}
+
+.is-interactive .encounter-scene-caption {
+  left: 1.5rem;
+  bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.is-interactive .encounter-copy {
+  display: block;
+  padding: 1.5rem;
+}
+
+.is-interactive .encounter-copy h3 {
+  font-size: 1.65rem;
+  margin-bottom: 1rem;
+}
+
+.encounter-interactive {
+  padding: 1.5rem;
+  border-left: 1px solid #ffffff30;
+}
+
+.encounter-interactive[hidden] {
+  display: none;
+}
+
+.encounter-interactive > .eyebrow {
+  margin-bottom: 0.4rem;
+}
+
+.encounter-interactive > h4 {
+  margin: 0 0 1rem;
+  font-size: 1.35rem;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+}
+
+.encounter-choices {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.6rem;
+  margin-bottom: 1.2rem;
+}
+
+.encounter-choice {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.45rem;
+  min-width: 0;
+  min-height: 96px;
+  padding: 0.8rem 0.5rem 0.6rem;
+  border: 2px solid #bfcec480;
+  border-radius: 3px;
+  background: var(--color-forest-light);
+  color: var(--color-on-dark);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: left;
+  cursor: pointer;
+}
+
+.encounter-choice:hover {
+  background: #284e3d;
+  border-color: var(--color-warm-highlight);
+}
+
+.encounter-choice small {
+  visibility: hidden;
+  font-size: 0.65rem;
+  font-weight: 500;
+}
+
+.encounter-choice[aria-pressed="true"] {
+  border-color: var(--color-on-dark);
+  background: var(--color-accent);
+}
+
+.encounter-choice[aria-pressed="true"] small {
+  visibility: visible;
+}
+
+.encounter-response {
+  min-height: 16rem;
+  padding: 1.3rem;
+  border-left: 3px solid var(--color-accent);
+  border-radius: 3px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  overflow-anchor: none;
+}
+
+.encounter-response .eyebrow {
+  margin-bottom: 0.6rem;
+  color: var(--color-accent);
+  font-size: 0.65rem;
+}
+
+.encounter-response h4 {
+  margin: 0 0 0.8rem;
+  font-size: 1.25rem;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+}
+
+.encounter-response > p:not(.eyebrow) {
+  font-size: 0.875rem;
+  line-height: 1.65;
+}
+
+.encounter-lesson {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.encounter-lesson strong {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--color-accent);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.encounter-interactive .encounter-freedom {
+  margin-top: 1rem;
+  color: var(--color-muted-on-dark);
+  font-size: 0.75rem;
+  line-height: 1.65;
+}
+
 /* Visible activities extend the same castle scene, rather than a second set of choices. */
 .adventure-approaches {
   margin-top: 2rem;
@@ -1559,6 +1707,28 @@ main:focus-visible h1 {
   .journey-nav a {
     transition: color 150ms ease;
   }
+  .encounter-choice {
+    transition: background-color 150ms ease, border-color 150ms ease;
+  }
+}
+
+@media (max-width: 1200px) {
+  .encounter-stage.is-interactive {
+    display: block;
+  }
+  .is-interactive .encounter-setting {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .is-interactive .encounter-scene img {
+    height: 100%;
+    min-height: 260px;
+    aspect-ratio: auto;
+  }
+  .encounter-interactive {
+    border-left: 0;
+    border-top: 1px solid #ffffff30;
+  }
 }
 
 /* Chapter navigation becomes an in-flow index before the reading column narrows. */
@@ -1722,6 +1892,27 @@ main:focus-visible h1 {
   .encounter-copy .eyebrow,
   .encounter-copy .encounter-prompt {
     grid-column: auto;
+  }
+  .is-interactive .encounter-setting {
+    display: block;
+  }
+  .is-interactive .encounter-scene img {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 1.8 / 1;
+  }
+  .is-interactive .encounter-copy, .encounter-interactive {
+    padding: 1.2rem;
+  }
+  .encounter-choices {
+    gap: 0.4rem;
+  }
+  .encounter-choice {
+    font-size: 0.75rem;
+  }
+  .encounter-response {
+    min-height: 18rem;
+    padding: 1rem;
   }
   .approach-list {
     grid-template-columns: 1fr;
