@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A welcoming first guide to Dungeons & Dragons: understand a session, characters, dice, and what to bring.">
+  <meta name="description" content="Your first steps into Dungeons & Dragons: five welcoming chapters about shared stories, decisions, characters, dice, and getting ready to play.">
   <title>Start Here — D&D Basics</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,9 +11,8 @@
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 </head>
-<body id="top">
+<body id="top" class="onboarding-page">
   <a class="skip-link" href="#main-content">Skip to content</a>
-
   <header class="site-header dark-surface">
     <div class="page-width header-inner">
       <a class="site-name" href="index.html">
@@ -28,147 +27,221 @@
     </div>
   </header>
 
-  <main id="main-content" class="guide-main page-width" tabindex="-1">
-    <div class="guide-heading">
-      <a class="back-link" href="index.html">← Back to the hub</a>
-      <p class="eyebrow">The beginner's guide</p>
-      <p class="guide-deck">A little curiosity is all you need to start. Take it one topic at a time.</p>
+  <main id="main-content" tabindex="-1">
+    <section class="journey-opening dark-surface" aria-labelledby="journey-heading">
+      <div class="page-width journey-opening-inner">
+        <div>
+          <p class="eyebrow">Start here / The beginner's journey</p>
+          <h1 id="journey-heading">Learn the game.<br><span>Find your story.</span></h1>
+          <p class="journey-deck">Five chapters to understand D&D, imagine your choices, and get ready for your first session.</p>
+          <p class="journey-reassurance">A little curiosity is all you need to start. Take it one topic at a time.</p>
+          <div class="journey-opening-actions">
+            <a class="button" href="#introduction">Begin the journey <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+        <figure class="opening-scene">
+          <img src="images/first-choice.webp" srcset="images/first-choice-small.webp 600w, images/first-choice.webp 1200w" sizes="(max-width: 700px) 88vw, (max-width: 1363px) 38vw, 487px" width="1200" height="800" fetchpriority="high" alt="A winding forest path leads toward an old watchtower, where a single warm light glows at dusk.">
+          <figcaption>
+            <p class="eyebrow">Imagine your first moment</p>
+            <p class="opening-scene-story">A light flickers in the old watchtower. Your friends turn to you.</p>
+            <p class="opening-scene-question">What do you try?</p>
+            <p class="opening-scene-note">D&D begins with a conversation. Your choices give it a direction.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div class="page-width journey-layout">
+      <!-- These are ordinary chapter links, not locked steps or completion indicators. -->
+      <nav id="journey-nav" class="journey-nav" aria-labelledby="journey-nav-heading">
+        <p id="journey-nav-heading" class="eyebrow">Your path into play</p>
+        <ol role="list">
+          <li><a href="#introduction"><span class="nav-number" aria-hidden="true">01</span><span>The big picture<small class="nav-selected">Selected</small></span></a></li>
+          <li><a href="#how-it-works"><span class="nav-number" aria-hidden="true">02</span><span>Your first decision<small class="nav-selected">Selected</small></span></a></li>
+          <li><a href="#characters"><span class="nav-number" aria-hidden="true">03</span><span>Your character<small class="nav-selected">Selected</small></span></a></li>
+          <li><a href="#dice"><span class="nav-number" aria-hidden="true">04</span><span>Understand a roll<small class="nav-selected">Selected</small></span></a></li>
+          <li><a href="#getting-started"><span class="nav-number" aria-hidden="true">05</span><span>Get ready to play<small class="nav-selected">Selected</small></span></a></li>
+        </ol>
+        <p class="journey-nav-note">Follow the path, or jump to what you're curious about.</p>
+      </nav>
+
+      <div class="journey-chapters">
+        <section id="introduction" class="lesson-chapter" aria-labelledby="intro-heading">
+          <header class="chapter-heading">
+            <span class="chapter-step" aria-hidden="true">01</span>
+            <div><p class="eyebrow">Understand the experience</p><h2 id="intro-heading">Get the big picture.</h2></div>
+          </header>
+          <h3>What is Dungeons & Dragons?</h3>
+          <p><strong>D&D stands for Dungeons & Dragons.</strong> It's a cooperative tabletop roleplaying game. You and the other players create fantasy characters and decide what they do in an imaginary world.</p>
+          <p>One person, called the <strong>Dungeon Master (DM)</strong>, describes and runs that world. Your decisions shape the adventure, while rules and dice help resolve uncertain outcomes. The point is to enjoy a shared story together, rather than defeat the other players.</p>
+          <figure class="role-diagram">
+            <div class="role-node">
+              <p class="eyebrow">The Dungeon Master</p>
+              <h3>Describes the world.</h3>
+              <p>Plays the people you meet and helps resolve what happens next.</p>
+              <blockquote>“A stranger waves you over.”</blockquote>
+            </div>
+            <div class="shared-world" aria-hidden="true"><span>↔</span><p>One shared<br><strong>adventure</strong></p><span>↔</span></div>
+            <div class="role-node">
+              <p class="eyebrow">The players</p>
+              <h3>Choose what to try.</h3>
+              <p>Describe your character's actions and build on each other's ideas.</p>
+              <blockquote>“Let's hear what they have to say.”</blockquote>
+            </div>
+            <figcaption>Different roles, one shared adventure. The conversation shapes what happens next.</figcaption>
+          </figure>
+        </section>
+
+        <section id="how-it-works" class="lesson-chapter encounter-chapter" aria-labelledby="how-heading">
+          <header class="chapter-heading">
+            <span class="chapter-step" aria-hidden="true">02</span>
+            <div><p class="eyebrow">From an idea to an adventure</p><h2 id="how-heading">Make your first decision.</h2></div>
+          </header>
+          <p>A session is one meeting to play. It usually follows this pattern:</p>
+          <!-- A real ordered list keeps the gameplay sequence readable without its layout. -->
+          <ol class="play-loop">
+            <li><strong>Describe</strong><p>The Dungeon Master describes the situation.</p></li>
+            <li><strong>Decide</strong><p>The players decide what their characters attempt.</p></li>
+            <li><strong>Discover</strong><p>The Dungeon Master explains what happens, using rules or dice when needed.</p></li>
+          </ol>
+          <p class="loop-return"><span aria-hidden="true">↳</span> A new situation gives you another choice. The story keeps moving.</p>
+
+          <div class="encounter-stage dark-surface">
+            <div class="encounter-scene">
+              <img src="images/castle-door.webp" srcset="images/castle-door-small.webp 768w, images/castle-door.webp 1536w" sizes="(max-width: 1000px) 88vw, (max-width: 1363px) calc(88vw - 228px), 972px" width="1536" height="1024" loading="lazy" alt="A closed oak door with a keyhole beneath a weathered stone arch, with a narrow window beside it.">
+              <p class="encounter-scene-caption"><span class="eyebrow">Encounter 01</span>At the threshold</p>
+            </div>
+            <div class="encounter-copy">
+              <p class="eyebrow">The Dungeon Master sets the scene</p>
+              <h3>The door is locked.<br>Your options aren't.</h3>
+              <p>Your group reaches an old castle. The heavy door is closed, and a narrow window overlooks the steps. What do you do?</p>
+              <p class="encounter-prompt">Describe what your character tries. Your choice moves the story forward.</p>
+            </div>
+          </div>
+
+          <section id="adventures" class="adventure-approaches" aria-labelledby="adventures-heading">
+            <p class="eyebrow">One castle / Many kinds of adventure</p>
+            <h3 id="adventures-heading">There's more than one way to play.</h3>
+            <p>An adventure is the story or situation your group is playing through. These three kinds of activity often overlap:</p>
+            <div class="approach-list">
+              <article><span class="activity-symbol" aria-hidden="true">↗</span><h4>Exploration</h4><p class="activity-example">Find what others missed.</p><p>Search the castle wall for a hidden passage, follow clues, or solve a puzzle.</p></article>
+              <article><span class="activity-symbol" aria-hidden="true">“ ”</span><h4>Social interaction</h4><p class="activity-example">Make a connection.</p><p>Talk to the guard behind the door. Ask questions, negotiate, or try to earn their trust.</p></article>
+              <article><span class="activity-symbol" aria-hidden="true">⚔︎</span><h4>Combat</h4><p class="activity-example">Face danger together.</p><p>If monsters attack in the courtyard, characters take turns, using abilities and dice to resolve their actions.</p></article>
+            </div>
+            <p class="campaign-note">An adventure can last one session or continue over several. A longer series of connected adventures with the same group of characters is called a <strong>campaign</strong>.</p>
+          </section>
+        </section>
+
+        <section id="characters" class="lesson-chapter" aria-labelledby="characters-heading">
+          <header class="chapter-heading">
+            <span class="chapter-step" aria-hidden="true">03</span>
+            <div><p class="eyebrow">Someone to imagine</p><h2 id="characters-heading">Meet your character.</h2></div>
+          </header>
+          <p class="character-premise">You bring the personality.<br><strong>Your class brings some tools.</strong></p>
+          <p>Your character is the person you play, with their own personality, goals, and abilities. A <strong>class</strong> gives them a set of abilities and ways to approach an adventure.</p>
+          <p>Here are three examples. Notice what you'd enjoy trying; many other classes exist.</p>
+          <!-- Illustrated archetypes teach the classes; these are not selection controls or downloads. -->
+          <div class="class-lineup" role="group" aria-label="Three example classes">
+            <article class="class-profile">
+              <img src="images/class-fighter.webp" width="768" height="1152" loading="lazy" alt="An armored fighter plants her feet on castle steps, holding a drawn longsword and a large shield.">
+              <div class="class-copy">
+                <p class="eyebrow">Hold the line</p><h3>Fighter</h3>
+                <p>Step into the thick of the action. Fighters use weapons, armor, and practiced combat skills to protect the group and meet danger head-on.</p>
+                <blockquote><span>At the castle</span>“I raise my shield and hold the doorway while you get through.”</blockquote>
+              </div>
+            </article>
+            <article class="class-profile">
+              <img src="images/class-rogue.webp" width="768" height="1152" loading="lazy" alt="A hooded rogue crouches beside a castle window, carrying a dagger and a leather case of lockpicks.">
+              <div class="class-copy">
+                <p class="eyebrow">Find a clever way through</p><h3>Rogue</h3>
+                <p>Find the opening others miss. Rogues combine stealth, skills, and precise attacks with an eye for clever solutions.</p>
+                <blockquote><span>At the castle</span>“I slip past the guard and take a closer look at that lock.”</blockquote>
+              </div>
+            </article>
+            <article class="class-profile">
+              <img src="images/class-wizard.webp" width="768" height="1152" loading="lazy" alt="A robed wizard holds a crystal-tipped staff and shapes a glowing spell above an open spellbook.">
+              <div class="class-copy">
+                <p class="eyebrow">Make the impossible possible</p><h3>Wizard</h3>
+                <p>Turn knowledge into possibility. Wizards learn and cast spells, finding inventive magical answers to the problems the group faces.</p>
+                <blockquote><span>At the castle</span>“I use a spell to investigate the strange glow beyond the doorway.”</blockquote>
+              </div>
+            </article>
+          </div>
+          <p class="class-note"><strong>Your class gives you abilities. You decide who your character is.</strong> These illustrations show recognizable archetypes; your character can have their own appearance, personality, and goals.</p>
+        </section>
+
+        <section id="dice" class="lesson-chapter" aria-labelledby="dice-heading">
+          <header class="chapter-heading">
+            <span class="chapter-step" aria-hidden="true">04</span>
+            <div><p class="eyebrow">A little uncertainty</p><h2 id="dice-heading">Understand a roll.</h2></div>
+          </header>
+          <h3>How dice work</h3>
+          <p>Players roll dice when an action could succeed or fail and the outcome matters. The roll helps the group find out what happens, such as whether your character spots a hidden entrance.</p>
+          <p>A <strong>D20</strong> is a die with twenty sides. You often add a number from your character sheet to the roll. This adjustment is called a <strong>modifier</strong> and can be a bonus or a penalty.</p>
+          <p>Suppose the DM sets a target number of <strong>15</strong> to find a hidden entrance:</p>
+          <!-- Static worked example. Real controls and calculation behavior belong to M3-C. -->
+          <figure class="check-example dark-surface">
+            <div class="check-context"><p class="eyebrow">An ability check / Back at the castle</p><p>Can you spot a hidden entrance in the castle wall?</p></div>
+            <div class="roll-equation" aria-hidden="true">
+              <div><span class="roll-label">On the D20</span><div class="die-result"><svg viewBox="0 0 120 130" fill="none" focusable="false"><path d="M60 4 114 34v62l-54 30L6 96V34Z"/><path d="m60 4 32 82H28L60 4ZM6 34l22 52L6 96m108-62L92 86l22 10M28 86l32 40 32-40M6 34h108"/></svg><strong>12</strong></div><span>The die result</span></div>
+              <span class="math-sign">+</span>
+              <div><span class="roll-label">Modifier</span><strong>3</strong><span>The bonus</span></div>
+              <span class="math-sign">=</span>
+              <div class="roll-total"><span class="roll-label">Total</span><strong>15</strong><span>The final result</span></div>
+            </div>
+            <figcaption class="roll-example">
+              <strong>12</strong> on the die + <strong>3</strong> bonus = <strong>15</strong> total
+              <div class="target-result"><span>Target <strong>15</strong></span><p><strong>You find the entrance.</strong><br>The total meets the target.</p><span class="outcome-mark" aria-hidden="true">✓</span></div>
+            </figcaption>
+          </figure>
+          <p>Meeting or beating the target succeeds, so you find the entrance. A lower total would fail. Not every action needs a roll; the DM uses the rules to decide when dice are needed.</p>
+        </section>
+
+        <section id="getting-started" class="lesson-chapter" aria-labelledby="starting-heading">
+          <header class="chapter-heading">
+            <span class="chapter-step" aria-hidden="true">05</span>
+            <div><p class="eyebrow">Your next step is a real one</p><h2 id="starting-heading">Get ready to play.</h2></div>
+          </header>
+          <div class="ready-intro">
+            <p class="ready-statement">Bring your curiosity.<br><strong>Learn the rest together.</strong></p>
+            <div><h3>Anyone can play D&D</h3><p>You don't need to memorize the rules, act in character voices, or own expensive equipment. You can learn as you play.</p></div>
+          </div>
+          <p class="eyebrow preparation-heading">Pack light / A first-session checklist</p>
+          <ul class="session-checklist" role="list">
+            <li><strong>People to play with:</strong> someone to run the game as the DM, and other players to join you.</li>
+            <li><strong>A character:</strong> ask for a premade one if you'd like to try playing before creating your own.</li>
+            <li><strong>Dice or a digital dice roller:</strong> sharing a set of dice is fine.</li>
+            <li><strong>A way to keep track:</strong> a paper or digital character sheet records your character's abilities and belongings. A pencil or notes app helps too.</li>
+          </ul>
+          <div class="ready-next dark-surface"><p class="eyebrow">Your next move</p><h3>Start a conversation.</h3><p>Ask the person running the game what to bring and how long the session will last.</p><a class="light-link" href="index.html">Explore the adventure hub <span aria-hidden="true">↗</span></a></div>
+          <aside class="beginner-resources" aria-labelledby="resources-heading">
+            <h3 id="resources-heading">Official beginner resources</h3>
+            <p>Use these when you're ready for more information or want to look up a rule.</p>
+            <ul>
+              <li><a href="https://www.dndbeyond.com/en/how-to-play-dnd">D&D Beyond: How to Play</a></li>
+              <li><a href="https://www.dndbeyond.com/sources/dnd/br-2024/playing-the-game">Free rules: Playing the Game</a></li>
+              <li><a href="https://www.dndbeyond.com/sources/dnd/br-2024/character-classes">Free rules: Character Classes</a></li>
+            </ul>
+          </aside>
+        </section>
+
+        <section id="about" class="about-guide" aria-labelledby="about-heading">
+          <p class="eyebrow">A personal learning project</p>
+          <h2 id="about-heading">About this website</h2>
+          <p>I chose D&D for this project because I like games where your decisions can lead to different outcomes, and I find the way it combines rules and creativity interesting.</p>
+          <p>QA interests me for a similar reason. I enjoy understanding how things work and figuring out why something doesn't work the way it should. I think being curious, patient, and paying attention to details are useful qualities in this field.</p>
+        </section>
+      </div>
     </div>
-    <nav class="topic-nav" aria-label="Guide topics">
-      <a href="#introduction">The basics</a>
-      <a href="#how-it-works">A session</a>
-      <a href="#adventures">Adventures</a>
-      <a href="#characters">Characters</a>
-      <a href="#dice">Dice</a>
-      <a href="#getting-started">Getting ready</a>
-    </nav>
-    <!-- Introduction: explain the game and its roles before giving examples. -->
-    <section id="introduction" class="introduction" aria-labelledby="intro-heading">
-      <div>
-        <h1 id="intro-heading">What is Dungeons & Dragons?</h1>
-        <p><strong>D&D stands for Dungeons & Dragons.</strong> It's a cooperative tabletop roleplaying game. You and the other players create fantasy characters and decide what they do in an imaginary world.</p>
-        <p>One person, called the <strong>Dungeon Master (DM)</strong>, describes and runs that world. Your decisions shape the adventure, while rules and dice help resolve uncertain outcomes. The point is to enjoy a shared story together, rather than defeat the other players.</p>
-      </div>
-    </section>
-
-    <!-- The ordered list shows a sequence; the castle example puts it in context. -->
-    <section id="how-it-works" class="content-section reading-section" aria-labelledby="how-heading">
-      <h2 id="how-heading">How does a game work?</h2>
-      <p>A session is one meeting to play. It usually follows this pattern:</p>
-      <ol class="gameplay-steps">
-        <li>The Dungeon Master describes the situation.</li>
-        <li>The players decide what their characters attempt.</li>
-        <li>The Dungeon Master explains what happens, using rules or dice when needed.</li>
-      </ol>
-      <div class="castle-example">
-        <h3>A locked door in an old castle</h3>
-        <p>Your group reaches a locked door. One player tries to pick the lock, another searches for a different entrance, and someone suggests knocking.</p>
-        <p>The DM might describe an answer to the knock or a side entrance found during the search. An uncertain attempt, such as picking the lock, may need a roll. The result gives the group its next decision.</p>
-      </div>
-    </section>
-
-    <!-- Three related activities share a simple layout, without separate cards. -->
-    <section id="adventures" class="content-section" aria-labelledby="adventures-heading">
-      <h2 id="adventures-heading">What do you do during an adventure?</h2>
-      <p class="section-introduction">An adventure is the story or situation your group is playing through. It can involve several different kinds of activity.</p>
-      <div class="activity-grid">
-        <article>
-          <h3>Exploration</h3>
-          <p>You discover places, search for clues, solve puzzles, and investigate mysteries. You might look for a hidden passage or work out what a strange inscription means.</p>
-        </article>
-        <article>
-          <h3>Social interaction</h3>
-          <p>You talk to characters played by the DM, make friends, and negotiate. You might ask a villager about the castle or persuade a guard to let your group inside.</p>
-        </article>
-        <article>
-          <h3>Combat</h3>
-          <p>Characters and enemies take turns during a fight, using abilities and dice to resolve their actions. Your group might defend itself from monsters in a cellar.</p>
-        </article>
-      </div>
-      <p class="campaign-note">An adventure can last one session or continue over several. A longer series of connected adventures with the same group of characters is called a <strong>campaign</strong>.</p>
-    </section>
-
-    <!-- A table compares class information, rather than arranging the page layout. -->
-    <section id="characters" class="content-section" aria-labelledby="characters-heading">
-      <h2 id="characters-heading">Characters</h2>
-      <div class="reading-section">
-        <p>A character is someone you create and control in the game, with their own personality, goals, and abilities.</p>
-        <p>A <strong>class</strong> influences those abilities, but not their whole personality. These are three examples; many other classes exist.</p>
-      </div>
-      <table class="character-table">
-        <caption>Three example classes</caption>
-        <thead>
-          <tr>
-            <th scope="col">Class</th>
-            <th scope="col">What they're good at</th>
-            <th scope="col">Example</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Fighter</th>
-            <td>Weapons, armor, and combat</td>
-            <td>Protecting the group during a fight</td>
-          </tr>
-          <tr>
-            <th scope="row">Rogue</th>
-            <td>Stealth, skills, and precise attacks</td>
-            <td>Sneaking past guards or picking a lock</td>
-          </tr>
-          <tr>
-            <th scope="row">Wizard</th>
-            <td>Learning and casting spells</td>
-            <td>Using magic to solve problems</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <!-- Explain the purpose of dice before introducing the die and calculation. -->
-    <section id="dice" class="content-section dice-section" aria-labelledby="dice-heading">
-      <div>
-        <h2 id="dice-heading">How dice work</h2>
-        <p>Players roll dice when an action could succeed or fail and the outcome matters. The roll helps the group find out what happens, such as whether your character spots a hidden entrance.</p>
-        <p>A <strong>D20</strong> is a die with twenty sides. You often add a number from your character sheet to the roll. This adjustment is called a <strong>modifier</strong> and can be a bonus or a penalty.</p>
-        <p>Suppose the DM sets a target number of <strong>15</strong> to find a hidden entrance:</p>
-        <p class="roll-example"><strong>12</strong> on the die + <strong>3</strong> bonus = <strong>15</strong> total</p>
-        <p>Meeting or beating the target succeeds, so you find the entrance. A lower total would fail. Not every action needs a roll; the DM uses the rules to decide when dice are needed.</p>
-      </div>
-    </section>
-
-    <!-- Preparation and official references belong together. -->
-    <section id="getting-started" class="content-section getting-started" aria-labelledby="starting-heading">
-      <h2 id="starting-heading">Anyone can play D&D</h2>
-      <p>You don't need to memorize the rules, act in character voices, or own expensive equipment. You can learn as you play. A first session needs just a few practical things:</p>
-      <ul class="session-checklist">
-        <li><strong>People to play with:</strong> someone to run the game as the DM, and other players to join you.</li>
-        <li><strong>A character:</strong> ask for a premade one if you'd like to try playing before creating your own.</li>
-        <li><strong>Dice or a digital dice roller:</strong> sharing a set of dice is fine.</li>
-        <li><strong>A way to keep track:</strong> a paper or digital character sheet records your character's abilities and belongings. A pencil or notes app helps too.</li>
-      </ul>
-      <p>Ask the person running the game what to bring and how long the session will last.</p>
-      <aside class="beginner-resources" aria-labelledby="resources-heading">
-        <h3 id="resources-heading">Official beginner resources</h3>
-        <p>Use these when you're ready for more information or want to look up a rule.</p>
-        <ul>
-          <li><a href="https://www.dndbeyond.com/en/how-to-play-dnd">D&D Beyond: How to Play</a></li>
-          <li><a href="https://www.dndbeyond.com/sources/dnd/br-2024/playing-the-game">Free rules: Playing the Game</a></li>
-          <li><a href="https://www.dndbeyond.com/sources/dnd/br-2024/character-classes">Free rules: Character Classes</a></li>
-        </ul>
-      </aside>
-    </section>
-
-    <!-- Keep the author's personal explanation in their own words. -->
-    <section id="about" class="content-section reading-section" aria-labelledby="about-heading">
-      <h2 id="about-heading">About this website</h2>
-      <p>I chose D&D for this project because I like games where your decisions can lead to different outcomes, and I find the way it combines rules and creativity interesting.</p>
-      <p>QA interests me for a similar reason. I enjoy understanding how things work and figuring out why something doesn't work the way it should. I think being curious, patient, and paying attention to details are useful qualities in this field.</p>
-    </section>
   </main>
 
   <footer class="site-footer dark-surface">
     <div class="page-width footer-inner">
-      <div><a class="footer-brand" href="index.html">D&D Basics<span aria-hidden="true">.</span></a><p>An unofficial educational fan project.<br>A little curiosity. A shared adventure.</p></div>
+      <div>
+        <a class="footer-brand" href="index.html">D&D Basics<span aria-hidden="true">.</span></a>
+        <p>An unofficial educational fan project.<br>A little curiosity. A shared adventure.</p>
+        <p>Fantasy artwork on this page is AI-generated.</p>
+      </div>
       <nav aria-label="Footer navigation"><a href="start-here.html">Beginner guide</a><a href="start-here.html#about">About the project</a><a href="#top">Back to top ↑</a></nav>
     </div>
   </footer>

@@ -452,7 +452,7 @@ main:focus-visible h1 {
   font-size: 1.2rem;
 }
 
-/* The same locked-door moment connects the conversation and imagined scene. */
+/* Two worlds share the same grounded light and atmosphere. */
 .story-section {
   background: linear-gradient(140deg, var(--color-forest-light), var(--color-forest) 65%);
 }
@@ -475,120 +475,62 @@ main:focus-visible h1 {
   font-size: 0.95rem;
 }
 
-.story-pair {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-}
-
-.story-pair figure {
-  min-width: 0;
+/* A single purposeful scene connects everyday conversation and imagined adventure. */
+.story-bridge {
   margin: 0;
 }
 
-.conversation, .story-image {
-  min-height: 445px;
-}
-
-.conversation {
-  background: var(--color-background);
-  color: var(--color-text);
-  padding: 2.1rem 2.5rem;
-  border-radius: 3px;
-}
-
-.panel-label {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.17em;
-  text-transform: uppercase;
-}
-
-.conversation .panel-label {
-  color: var(--color-accent);
-}
-
-.conversation-intro {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
-  letter-spacing: -0.025em;
-  line-height: 1.2;
-  margin-bottom: 1.6rem;
-}
-
-.conversation dl {
-  border-left: 1px solid var(--color-line);
-  padding-left: 1.1rem;
-}
-
-.conversation dt {
-  margin-top: 0.8rem;
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--color-muted);
-}
-
-.conversation dd {
-  margin: 0.2rem 0 0;
-  font-size: 0.86rem;
-}
-
-.conversation-note {
-  font-size: 0.75rem;
-  color: var(--color-muted);
-}
-
-.story-image {
-  position: relative;
-  overflow: hidden;
-  border-radius: 3px;
-  background: radial-gradient(ellipse at 70% 30%, #b5ab6960, transparent 60%), var(--color-forest-light);
-}
-
-.story-image img {
-  position: absolute;
+.story-bridge > img {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 2 / 1;
   object-fit: cover;
-  object-position: 78% center;
+  object-position: center 45%;
+  border-radius: 4px;
 }
 
-.story-image::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(0deg, #10271fe8, transparent 65%);
-  pointer-events: none;
-}
-
-.story-image-label {
-  position: absolute;
-  z-index: 1;
-  left: 2rem;
-  right: 2rem;
-  bottom: 1.8rem;
-  text-shadow: 0 1px 8px #0008;
-}
-
-.story-image-label .panel-label {
-  color: var(--color-warm-highlight);
-}
-
-.story-image-label > p:last-child {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 2rem;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
-}
-
-.story-pair figcaption {
-  margin-top: 0.8rem;
-  font-size: 0.75rem;
+.story-bridge figcaption {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding-block: 1.1rem;
   color: var(--color-muted-on-dark);
+  font-size: 0.8rem;
+}
+
+.story-bridge figcaption strong {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--color-warm-highlight);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.story-conversation {
+  margin-top: 1rem;
+  padding-block: 1.5rem;
+  border-block: 1px solid #ffffff30;
+}
+
+.story-conversation > .eyebrow {
+  margin-bottom: 1.3rem;
+}
+
+.story-conversation dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  margin: 0;
+}
+
+.story-conversation dt {
+  font-size: 0.7rem;
+  color: var(--color-muted-on-dark);
+}
+
+.story-conversation dd {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
 }
 
 .story-followup {
@@ -625,139 +567,827 @@ main:focus-visible h1 {
   color: var(--color-muted);
 }
 
-/* The guide retains its original semantic sections, lists, and comparison table. */
-.guide-main {
-  max-width: 960px;
-  padding-bottom: 3rem;
+/* Start Here: a guided journey, with ordinary links and static worked examples. */
+.journey-opening {
+  background: radial-gradient(ellipse at 85% 15%, #55784b45, transparent 55%), var(--color-forest);
 }
 
-.guide-heading {
-  padding-top: 3rem;
-}
-
-.back-link {
-  font-size: 0.75rem;
-}
-
-.guide-heading .eyebrow {
-  margin-top: 2.5rem;
-  color: var(--color-accent);
-}
-
-.guide-deck {
-  max-width: 38rem;
-  color: var(--color-muted);
-}
-
-.topic-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.5rem;
-  margin-block: 1.8rem 3rem;
-  padding-block: 1rem;
-  border-block: 1px solid var(--color-line);
-}
-
-.topic-nav a {
-  font-size: 0.8rem;
-  padding-block: 0.35rem;
-}
-
-.guide-main h1 {
-  font-size: clamp(2.7rem, 5.5vw, 4.2rem);
-  max-width: 17ch;
-}
-
-.guide-main h2 {
-  font-size: clamp(1.9rem, 3.5vw, 2.7rem);
-}
-
-.guide-main p {
-  max-width: 70ch;
-}
-
-.introduction {
-  padding-bottom: 2rem;
-}
-
-.content-section {
-  padding-block: 2.5rem;
-  border-top: 1px solid var(--color-line);
-}
-
-.reading-section {
-  max-width: 50rem;
-}
-
-.section-introduction {
-  max-width: 48rem;
-  margin-bottom: 1.7rem;
-}
-
-.castle-example, .beginner-resources {
-  padding: 1.6rem;
-  margin-block: 1.6rem 0.5rem;
-  background: var(--color-surface);
-  border-left: 3px solid var(--color-accent);
-}
-
-.activity-grid {
+.journey-opening-inner {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.6rem;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  padding-block: 2.5rem 3.5rem;
 }
 
-.activity-grid h3 {
-  color: var(--color-accent);
-}
 
-.activity-grid p {
-  font-size: 0.9rem;
-}
-
-.campaign-note {
-  margin-top: 1.2rem;
-}
-
-.character-table {
-  width: 100%;
-  max-width: 50rem;
-  margin-top: 1.5rem;
-  border-collapse: collapse;
-}
-
-.character-table caption {
-  padding-bottom: 0.75rem;
-  text-align: left;
-  font-size: 0.8rem;
-  color: var(--color-muted);
-}
-
-.character-table th, .character-table td {
-  padding: 0.9rem 1rem;
-  border-bottom: 1px solid var(--color-line);
-  text-align: left;
-  vertical-align: top;
-}
-
-.character-table thead th {
-  background: var(--color-surface);
-  color: var(--color-accent);
-}
-
-.roll-example {
-  padding: 1.1rem 1.3rem;
-  background: var(--color-example);
-  font-size: 1.15rem;
-}
-
-.gameplay-steps, .session-checklist, .beginner-resources ul {
-  padding-left: 1.3rem;
+.journey-opening h1 {
+  font-size: clamp(3rem, 5.1vw, 4.6rem);
+  line-height: 1.1;
   margin-bottom: 1.5rem;
 }
 
-.gameplay-steps li, .session-checklist li, .beginner-resources li {
-  margin-bottom: 0.7rem;
+.journey-opening h1 span {
+  color: var(--color-warm-highlight);
+}
+
+.journey-deck {
+  max-width: 35rem;
+}
+
+.journey-reassurance {
+  max-width: 35rem;
+  color: var(--color-muted-on-dark);
+  font-size: 0.85rem;
+}
+
+.journey-opening-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem 1.5rem;
+  margin-top: 1.7rem;
+}
+
+/* A short imagined moment gives the journey a purpose without duplicating navigation. */
+.opening-scene {
+  position: relative;
+  align-self: stretch;
+  min-height: 460px;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--color-forest-light);
+}
+
+.opening-scene > img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 72% center;
+}
+
+.opening-scene::after {
+  content: "";
+  position: absolute;
+  inset: 20% 0 0;
+  background: linear-gradient(0deg, #10271ffa 8%, #10271fe0 38%, transparent 85%);
+  pointer-events: none;
+}
+
+.opening-scene figcaption {
+  position: absolute;
+  z-index: 1;
+  inset: auto 2rem 1.7rem;
+}
+
+.opening-scene .eyebrow {
+  font-size: 0.65rem;
+  margin-bottom: 0.8rem;
+}
+
+.opening-scene-story {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 28rem;
+  margin-bottom: 0.8rem;
+}
+
+.opening-scene-question {
+  font-size: 1.9rem;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-warm-highlight);
+}
+
+.opening-scene-note {
+  padding-top: 1rem;
+  border-top: 1px solid #ffffff30;
+  color: var(--color-muted-on-dark);
+  font-size: 0.75rem;
+}
+
+/* Sticky only where the entire chapter index comfortably fits. */
+.journey-layout {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 3rem;
+  padding-block: 3.5rem 4rem;
+}
+
+.journey-nav {
+  position: sticky;
+  top: 2rem;
+  align-self: start;
+  scroll-margin-top: 2rem;
+}
+
+.journey-nav > .eyebrow {
+  color: var(--color-accent);
+}
+
+.journey-nav ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.journey-nav li {
+  border-bottom: 1px solid var(--color-line);
+}
+
+.journey-nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 54px;
+  padding: 0.8rem 0.5rem;
+  border-left: 3px solid transparent;
+  color: var(--color-text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.journey-nav .nav-number {
+  color: var(--color-accent);
+  font-size: 0.7rem;
+}
+
+.journey-nav a:hover {
+  color: var(--color-accent);
+  background: #d8c4a42b;
+}
+
+.nav-selected {
+  display: none;
+  color: var(--color-accent);
+  font-size: 0.65rem;
+  font-weight: 500;
+}
+
+/* :has connects the URL's target chapter to its link. This is selection, not scroll tracking. */
+.journey-layout:has(#introduction:target) .journey-nav a[href="#introduction"],
+.journey-layout:has(#how-it-works:target) .journey-nav a[href="#how-it-works"],
+.journey-layout:has(#characters:target) .journey-nav a[href="#characters"],
+.journey-layout:has(#dice:target) .journey-nav a[href="#dice"],
+.journey-layout:has(#getting-started:target) .journey-nav a[href="#getting-started"] {
+  border-left-color: var(--color-accent);
+  background: #d8c4a445;
+}
+
+.journey-layout:has(#introduction:target) .journey-nav a[href="#introduction"] .nav-selected,
+.journey-layout:has(#how-it-works:target) .journey-nav a[href="#how-it-works"] .nav-selected,
+.journey-layout:has(#characters:target) .journey-nav a[href="#characters"] .nav-selected,
+.journey-layout:has(#dice:target) .journey-nav a[href="#dice"] .nav-selected,
+.journey-layout:has(#getting-started:target) .journey-nav a[href="#getting-started"] .nav-selected {
+  display: block;
+}
+
+.journey-nav-note {
+  margin-top: 1.2rem;
+  color: var(--color-muted);
+  font-size: 0.75rem;
+}
+
+.journey-chapters {
+  min-width: 0;
+}
+
+.lesson-chapter {
+  padding-block: 3rem;
+  border-top: 1px solid var(--color-line);
+  scroll-margin-top: 2rem;
+}
+
+.lesson-chapter:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.chapter-heading {
+  display: flex;
+  align-items: start;
+  gap: 1.1rem;
+  margin-bottom: 1.7rem;
+  padding-left: 1rem;
+  border-left: 3px solid transparent;
+}
+
+.lesson-chapter:target > .chapter-heading {
+  border-left-color: var(--color-accent);
+}
+
+.chapter-step {
+  padding-top: 0.1rem;
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+  color: var(--color-accent);
+}
+
+.chapter-heading .eyebrow {
+  margin-bottom: 0.5rem;
+  color: var(--color-muted);
+}
+
+.chapter-heading h2 {
+  font-size: clamp(1.8rem, 3.2vw, 2.7rem);
+  margin-bottom: 0;
+}
+
+.lesson-chapter > p {
+  max-width: 70ch;
+}
+
+
+/* Chapter 1: the relationship, the shared story, and a concrete conversation. */
+.role-diagram {
+  display: grid;
+  grid-template-columns: 1fr 160px 1fr;
+  gap: 1.2rem;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.role-node .eyebrow {
+  color: var(--color-accent);
+  margin-bottom: 0.8rem;
+}
+
+.role-node h3 {
+  font-size: 1.25rem;
+  line-height: 1.3;
+  margin-bottom: 0.8rem;
+}
+
+.role-node > p:not(.eyebrow) {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.role-node blockquote {
+  margin: 0;
+  padding-left: 0.8rem;
+  border-left: 2px solid var(--color-accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.shared-world {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  color: var(--color-accent);
+}
+
+.shared-world p {
+  display: grid;
+  align-content: center;
+  flex-shrink: 0;
+  width: 110px;
+  height: 110px;
+  border: 1px solid var(--color-line);
+  border-radius: 50%;
+  margin: 0;
+  text-align: center;
+  color: var(--color-text);
+  background: radial-gradient(circle, var(--color-surface), var(--color-example));
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.role-diagram figcaption {
+  grid-column: 1 / -1;
+  padding-top: 1rem;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+}
+
+/* Chapter 2: a short play loop, cinematic scene, and distinct possible approaches. */
+.play-loop {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.7rem;
+  margin: 1.5rem 0 0;
+  padding: 0 0 0 1.4rem;
+  list-style-type: decimal-leading-zero;
+}
+
+.play-loop li {
+  padding-left: 0.25rem;
+}
+
+.play-loop li::marker {
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.play-loop strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+}
+
+.play-loop p {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.loop-return {
+  padding-block: 0.8rem;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+.loop-return span {
+  color: var(--color-accent);
+  margin-right: 0.5rem;
+}
+
+.encounter-stage {
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.encounter-scene {
+  position: relative;
+}
+
+.encounter-scene img {
+  width: 100%;
+  aspect-ratio: 2.1 / 1;
+  object-fit: cover;
+  object-position: center 46%;
+}
+
+.encounter-scene::after {
+  content: "";
+  position: absolute;
+  inset: 50% 0 0;
+  background: linear-gradient(0deg, #10271fe8, transparent);
+  pointer-events: none;
+}
+
+.encounter-scene-caption {
+  position: absolute;
+  z-index: 1;
+  left: 2rem;
+  bottom: 1.3rem;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.encounter-scene-caption .eyebrow {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.encounter-copy {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 2rem;
+  padding: 1.7rem 2rem 2rem;
+}
+
+.encounter-copy .eyebrow {
+  grid-column: 1 / -1;
+}
+
+.encounter-copy h3 {
+  font-size: clamp(1.6rem, 2.8vw, 2.15rem);
+  letter-spacing: -0.035em;
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+
+.encounter-copy > p:not(.eyebrow) {
+  font-size: 0.9rem;
+  color: var(--color-muted-on-dark);
+}
+
+.encounter-copy .encounter-prompt {
+  grid-column: 2;
+  border-left: 2px solid var(--color-warm-highlight);
+  padding-left: 0.8rem;
+  color: var(--color-on-dark);
+  font-size: 0.8rem;
+}
+
+/* Visible activities extend the same castle scene, rather than a second set of choices. */
+.adventure-approaches {
+  margin-top: 2rem;
+  padding-top: 1.7rem;
+  border-top: 1px solid var(--color-line);
+  scroll-margin-top: 2rem;
+}
+
+.adventure-approaches > .eyebrow {
+  color: var(--color-accent);
+}
+
+.adventure-approaches > h3 {
+  font-size: 1.6rem;
+  letter-spacing: -0.03em;
+}
+
+.adventure-approaches > p:not(.eyebrow), .approach-list p {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.approach-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.7rem;
+}
+
+.approach-list article {
+  padding-left: 1rem;
+  border-left: 1px solid var(--color-line);
+}
+
+.activity-symbol {
+  display: block;
+  height: 2.7rem;
+  margin-bottom: 0.6rem;
+  color: var(--color-accent);
+  font-size: 2.1rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.approach-list h4 {
+  margin: 0 0 0.8rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--color-accent);
+}
+
+.approach-list .activity-example {
+  color: var(--color-text);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.8rem;
+}
+
+.adventure-approaches .campaign-note {
+  margin-top: 1.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--color-line);
+  font-size: 0.8rem;
+}
+
+/* Chapter 3: class archetypes use complete illustrations and concise, distinct examples. */
+.character-premise {
+  font-size: 1.7rem;
+  letter-spacing: -0.03em;
+  line-height: 1.3;
+}
+
+.character-premise strong {
+  color: var(--color-accent);
+}
+
+.class-lineup {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+  margin-top: 1.8rem;
+}
+
+.class-profile {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  color: var(--color-on-dark);
+  background: var(--color-forest);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.class-profile > img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+
+.class-copy {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.4rem;
+}
+
+.class-copy .eyebrow {
+  margin-bottom: 0.6rem;
+  color: var(--color-warm-highlight);
+  font-size: 0.65rem;
+}
+
+.class-copy h3 {
+  font-size: 2rem;
+  letter-spacing: -0.035em;
+  margin-bottom: 1rem;
+}
+
+.class-copy > p:not(.eyebrow) {
+  color: var(--color-muted-on-dark);
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+.class-copy blockquote {
+  margin: auto 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid #ffffff30;
+  font-size: 0.85rem;
+  line-height: 1.65;
+}
+
+.class-copy blockquote span {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--color-warm-highlight);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.class-note {
+  margin-top: 1.3rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--color-accent);
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+/* Chapter 4: a decorative die diagram backed by a complete readable caption. */
+.check-example {
+  padding: 2rem;
+  margin-block: 1.7rem;
+  border-radius: 4px;
+  background: radial-gradient(ellipse at 20% 50%, #466b4c50, transparent 65%), var(--color-forest);
+}
+
+.check-context {
+  border-bottom: 1px solid #ffffff30;
+  padding-bottom: 1rem;
+}
+
+.check-context .eyebrow {
+  margin-bottom: 0.4rem;
+}
+
+.check-context > p:last-child {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.roll-equation {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 0.8rem;
+  align-items: center;
+  margin-block: 1.3rem;
+  text-align: center;
+}
+
+.roll-equation > div {
+  min-width: 0;
+}
+
+.roll-equation strong {
+  display: grid;
+  place-items: center;
+  height: 140px;
+  margin: 0;
+  font-size: clamp(2.8rem, 5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 1.15;
+}
+
+.roll-equation .roll-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.8em;
+  line-height: 1.4;
+  font-size: 0.75rem;
+  color: var(--color-on-dark);
+}
+
+.roll-equation > div > span:last-child {
+  display: block;
+  min-height: 2.8em;
+  line-height: 1.4;
+}
+
+.roll-equation span {
+  font-size: 0.75rem;
+  color: var(--color-muted-on-dark);
+}
+
+.roll-equation .math-sign {
+  font-size: 1.5rem;
+}
+
+.die-result {
+  position: relative;
+  width: min(100%, 130px);
+  margin-inline: auto;
+}
+
+.die-result svg {
+  position: absolute;
+  inset: 5px 0;
+  width: 100%;
+  height: 130px;
+  stroke: var(--color-warm-highlight);
+  stroke-width: 1;
+}
+
+.die-result strong {
+  position: relative;
+  font-size: 2.2rem;
+}
+
+.roll-total strong {
+  color: var(--color-warm-highlight);
+}
+
+.roll-example {
+  text-align: center;
+  color: var(--color-muted-on-dark);
+  font-size: 0.8rem;
+}
+
+.target-result {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  gap: 1.5rem;
+  padding-top: 1.3rem;
+  margin-top: 1.3rem;
+  border-top: 1px solid #ffffff35;
+}
+
+.target-result > span {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.8rem;
+  color: var(--color-muted-on-dark);
+}
+
+.target-result > span strong {
+  font-size: 1.8rem;
+  color: var(--color-warm-highlight);
+}
+
+.target-result p {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.target-result .outcome-mark {
+  margin-left: auto;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--color-warm-highlight);
+  border-radius: 50%;
+  color: var(--color-warm-highlight);
+}
+
+/* Chapter 5: practical preparation and a real next step. */
+.ready-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-block: 2rem;
+}
+
+.ready-statement {
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.3;
+}
+
+.ready-statement strong {
+  color: var(--color-accent);
+}
+
+.ready-intro > div p {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.preparation-heading {
+  color: var(--color-accent);
+}
+
+.session-checklist {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 2rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+  counter-reset: packing;
+}
+
+.session-checklist li {
+  position: relative;
+  padding: 1.2rem 0 1.2rem 2.5rem;
+  border-top: 1px solid var(--color-line);
+  font-size: 0.9rem;
+  counter-increment: packing;
+}
+
+.session-checklist li::before {
+  content: counter(packing, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 1.3rem;
+  color: var(--color-accent);
+  font-size: 0.7rem;
+}
+
+.session-checklist strong {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.ready-next {
+  position: relative;
+  padding: 2rem;
+  border-left: 3px solid var(--color-warm-highlight);
+  background: linear-gradient(120deg, var(--color-forest-light), var(--color-forest));
+}
+
+.ready-next h3 {
+  font-size: 1.8rem;
+  letter-spacing: -0.03em;
+}
+
+.ready-next p:not(.eyebrow) {
+  color: var(--color-muted-on-dark);
+  font-size: 0.9rem;
+}
+
+.beginner-resources {
+  margin-top: 1.7rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.beginner-resources p, .beginner-resources li {
+  font-size: 0.85rem;
+}
+
+.beginner-resources ul {
+  padding-left: 1.2rem;
+  margin-bottom: 0;
+}
+
+.beginner-resources li + li {
+  margin-top: 0.65rem;
+}
+
+.about-guide {
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.about-guide > .eyebrow {
+  color: var(--color-muted);
+}
+
+.about-guide h2 {
+  font-size: 1.5rem;
+}
+
+.about-guide p:not(.eyebrow) {
+  max-width: 70ch;
+  color: var(--color-muted);
+  font-size: 0.9rem;
 }
 
 /* Shared footer. All links lead to content that exists in this milestone. */
@@ -825,9 +1455,6 @@ main:focus-visible h1 {
   .section-heading {
     gap: 2.5rem;
   }
-  .conversation {
-    padding: 1.8rem;
-  }
 }
 
 @media (max-width: 700px) {
@@ -889,7 +1516,7 @@ main:focus-visible h1 {
   .hero-bottom {
     padding-block: 1rem;
   }
-  .guide-feature, .next-chapter, .section-heading, .story-pair {
+  .guide-feature, .next-chapter, .section-heading {
     grid-template-columns: 1fr;
   }
   .guide-feature, .next-chapter {
@@ -900,16 +1527,6 @@ main:focus-visible h1 {
   }
   .section-heading > p {
     max-width: 36rem;
-  }
-  .story-pair {
-    gap: 2rem;
-  }
-  .conversation {
-    padding: 1.8rem;
-    min-height: 0;
-  }
-  .story-image {
-    min-height: 370px;
   }
   .story-followup {
     flex-direction: column;
@@ -926,25 +1543,6 @@ main:focus-visible h1 {
   .chapter-list a > span > span {
     font-size: 0.7rem;
   }
-  .activity-grid {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-  }
-  .character-table {
-    font-size: 0.84rem;
-  }
-  .character-table th, .character-table td {
-    padding: 0.7rem 0.4rem;
-  }
-  .character-table th:first-child {
-    white-space: nowrap;
-  }
-  .castle-example, .beginner-resources {
-    padding: 1.2rem;
-  }
-  .content-section {
-    padding-block: 2rem;
-  }
   .footer-inner {
     flex-direction: column;
     gap: 1.5rem;
@@ -957,5 +1555,268 @@ main:focus-visible h1 {
 @media (prefers-reduced-motion: no-preference) {
   .button {
     transition: background-color 150ms ease;
+  }
+  .journey-nav a {
+    transition: color 150ms ease;
+  }
+}
+
+/* Chapter navigation becomes an in-flow index before the reading column narrows. */
+@media (max-height: 600px) {
+  .journey-nav {
+    position: static;
+  }
+}
+
+@media (max-width: 1000px) {
+  .journey-opening-inner {
+    gap: 2rem;
+  }
+  .journey-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-top: 2rem;
+  }
+  .journey-nav {
+    position: static;
+    padding-bottom: 1.3rem;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .journey-nav ol {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+  .journey-nav li {
+    border-bottom: 0;
+  }
+  .journey-nav a {
+    flex-direction: column;
+    align-items: start;
+    gap: 0.2rem;
+    font-size: 0.75rem;
+  }
+  .journey-nav-note {
+    margin-top: 0.6rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .story-bridge > img {
+    aspect-ratio: 3 / 2;
+  }
+  .story-bridge figcaption {
+    gap: 1rem;
+    font-size: 0.75rem;
+  }
+  .story-bridge figcaption strong {
+    font-size: 0.6rem;
+  }
+  .story-conversation dl {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .journey-opening-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-block: 1.8rem 2.5rem;
+  }
+  .journey-opening h1 {
+    font-size: clamp(2.35rem, 8vw, 3.4rem);
+  }
+  .journey-opening .eyebrow {
+    font-size: 0.65rem;
+  }
+  .journey-opening-actions {
+    margin-top: 1.3rem;
+  }
+  .opening-scene {
+    min-height: 360px;
+  }
+  .opening-scene figcaption {
+    inset: auto 1.4rem 1.4rem;
+  }
+  .opening-scene-story {
+    font-size: 0.9rem;
+  }
+  .opening-scene-question {
+    font-size: 1.6rem;
+  }
+  .journey-nav ol {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.2rem 0.8rem;
+  }
+  .journey-nav a {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.6rem;
+    min-height: 60px;
+  }
+  .journey-layout {
+    gap: 2rem;
+    padding-bottom: 3rem;
+  }
+  .lesson-chapter {
+    padding-block: 2.5rem;
+  }
+  .chapter-heading {
+    gap: 0.7rem;
+    padding-left: 0.6rem;
+    margin-bottom: 1.5rem;
+  }
+  .chapter-heading h2 {
+    font-size: clamp(1.65rem, 6vw, 2rem);
+  }
+  .chapter-heading .eyebrow {
+    font-size: 0.65rem;
+  }
+  .chapter-step {
+    font-size: 1.3rem;
+  }
+  .role-diagram {
+    grid-template-columns: 1fr;
+    gap: 1.3rem;
+    padding-top: 0;
+    border-top: 0;
+  }
+  .role-node {
+    padding-left: 1rem;
+    border-left: 2px solid var(--color-line);
+  }
+  .shared-world {
+    justify-content: start;
+    padding-left: 1rem;
+  }
+  .shared-world p {
+    width: auto;
+    height: auto;
+    border-radius: 3px;
+    padding: 0.7rem 1.3rem;
+  }
+  .shared-world > span {
+    transform: rotate(90deg);
+  }
+  .role-diagram figcaption {
+    padding-top: 0;
+  }
+  .play-loop {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .play-loop strong {
+    margin-bottom: 0.3rem;
+  }
+  .encounter-scene img {
+    aspect-ratio: 4 / 3;
+  }
+  .encounter-scene-caption {
+    left: 1.3rem;
+    bottom: 1rem;
+    font-size: 1.4rem;
+  }
+  .encounter-copy {
+    grid-template-columns: 1fr;
+    padding: 1.3rem;
+    gap: 0.8rem;
+  }
+  .encounter-copy .eyebrow,
+  .encounter-copy .encounter-prompt {
+    grid-column: auto;
+  }
+  .approach-list {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .approach-list article {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 0.5rem 1rem;
+    padding-left: 0;
+    border-left: 0;
+  }
+  .activity-symbol {
+    grid-row: 1 / 4;
+    margin: 0;
+  }
+  .approach-list h4, .approach-list .activity-example {
+    margin: 0;
+  }
+  .approach-list article > p {
+    grid-column: 2;
+  }
+  .character-premise {
+    font-size: 1.4rem;
+  }
+  .class-lineup {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .class-profile {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    align-items: start;
+  }
+  .class-copy {
+    padding: 1.4rem;
+  }
+  .class-copy h3 {
+    font-size: 1.8rem;
+  }
+  .check-example {
+    padding: 1.2rem;
+  }
+  .check-context > p:last-child {
+    font-size: 1rem;
+  }
+  .roll-equation {
+    gap: 0.35rem;
+  }
+  .roll-equation strong {
+    height: 95px;
+    font-size: 2.5rem;
+  }
+  .die-result svg {
+    height: 85px;
+  }
+  .die-result strong {
+    font-size: 1.3rem;
+  }
+  .roll-equation .math-sign {
+    font-size: 1.1rem;
+  }
+  .target-result {
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+  .target-result .outcome-mark {
+    display: none;
+  }
+  .ready-intro {
+    grid-template-columns: 1fr;
+    gap: 1.3rem;
+    margin-block: 1.5rem;
+  }
+  .session-checklist {
+    grid-template-columns: 1fr;
+  }
+  .ready-next {
+    padding: 1.4rem;
+  }
+}
+
+/* On phones each class gets its full illustration; its equipment stays in frame. */
+@media (max-width: 500px) {
+  .class-profile {
+    display: block;
+  }
+}
+
+/* Keep the shared navigation on one row on narrow phones. */
+@media (max-width: 400px) {
+  .main-nav {
+    gap: 0.5rem;
+  }
+  .main-nav a:last-child {
+    padding-left: 0.7rem;
   }
 }
