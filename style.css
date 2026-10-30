@@ -1,4 +1,4 @@
-/* Theme: shared colors keep text, links, and small highlights consistent. */
+/* Shared palette: the original cream, green, and rust anchor both pages. */
 :root {
   --color-background: #f5f0e7;
   --color-text: #26332f;
@@ -7,9 +7,16 @@
   --color-surface: #fffaf3;
   --color-example: #eee2d5;
   --color-line: #d8c4a4;
+  --color-forest: #10271f;
+  --color-forest-light: #19392e;
+  --color-on-dark: #f5f0e7;
+  --color-muted-on-dark: #bfcec4;
+  --color-warm-highlight: #e9bd94;
+  --font-body: "Manrope", "Segoe UI", Arial, sans-serif;
+  --font-heading: var(--font-body);
 }
 
-/* Foundations: readable system fonts and predictable element widths. */
+/* Foundations. min-width prevents long grid children forcing the page wider. */
 * {
   box-sizing: border-box;
 }
@@ -18,140 +25,664 @@ body {
   margin: 0;
   background: var(--color-background);
   color: var(--color-text);
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: var(--font-body);
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
-.site-name {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.site-logo {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
-}
-
-h1, h2, h3, p {
-  margin: 0 0 1rem;
+h1, h2, h3, p, figure, dl {
+  margin: 0 0 1.2rem;
 }
 
 h1, h2, h3 {
-  font-weight: 700;
-  line-height: 1.25;
+  line-height: 1.12;
 }
 
-h1 {
-  font-size: clamp(2rem, 3.5vw, 2.65rem);
-  letter-spacing: -0.03em;
+h1, h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.035em;
 }
 
 h2 {
-  font-size: clamp(1.55rem, 2.5vw, 1.95rem);
-  letter-spacing: -0.02em;
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
 }
 
 h3 {
-  font-size: 1.15rem;
+  font-size: 1.12rem;
+  font-weight: 700;
+}
+
+p:last-child {
+  margin-bottom: 0;
 }
 
 a {
   color: var(--color-accent);
-  text-underline-offset: 0.22em;
+  text-underline-offset: 0.25em;
 }
 
 a:hover {
   text-decoration-thickness: 2px;
 }
 
-:focus-visible {
-  outline: 3px solid var(--color-accent);
-  outline-offset: 3px;
-}
-
 img {
   display: block;
-  width: 100%;
+  max-width: 100%;
   height: auto;
 }
 
-section, main {
+section, main, aside {
   scroll-margin-top: 1.5rem;
 }
 
 .page-width {
-  width: 90%;
-  max-width: 1120px;
+  width: min(88%, 1200px);
   margin-inline: auto;
 }
 
-/* Header: all navigation stays visible and can wrap as needed. */
+.section-space {
+  padding-block: clamp(3.5rem, 7vw, 6.5rem);
+}
+
+.eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  line-height: 1.6;
+}
+
+.dark-surface {
+  background: var(--color-forest);
+  color: var(--color-on-dark);
+}
+
+.dark-surface a {
+  color: var(--color-on-dark);
+}
+
+.dark-surface .eyebrow {
+  color: var(--color-warm-highlight);
+}
+
+/* Keyboard feedback is visible on both light and dark surfaces. */
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+.dark-surface :focus-visible, .skip-link:focus-visible {
+  outline-color: var(--color-on-dark);
+}
+
+/* Indicate the skip-link destination at its heading, not around the entire page. */
+main:focus-visible {
+  outline: none;
+}
+
+main:focus-visible h1 {
+  outline: 3px solid currentColor;
+  outline-offset: 8px;
+}
+
 .skip-link {
   position: absolute;
   top: -6rem;
   left: 1rem;
-  z-index: 1;
-  padding: 0.6rem 1rem;
-  background: var(--color-text);
-  color: var(--color-background);
+  z-index: 10;
+  padding: 0.7rem 1rem;
+  color: var(--color-on-dark);
+  background: var(--color-forest);
 }
 
 .skip-link:focus {
   top: 1rem;
 }
 
+/* The same compact header is repeated on two pages; no menu script is needed. */
 .site-header {
+  border-bottom: 1px solid #ffffff1c;
+}
+
+.header-inner {
+  min-height: 100px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   gap: 2rem;
-  padding-block: 1.3rem;
-  border-bottom: 1px solid var(--color-line);
 }
 
 .site-name {
-  color: var(--color-text);
-  font-size: 1.45rem;
-  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.25;
 }
 
-nav {
+.site-logo {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.brand-note {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.17em;
+  color: var(--color-muted-on-dark);
+}
+
+.main-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem 1.3rem;
+  align-items: center;
+  gap: 1.9rem;
 }
 
-nav a {
-  padding-block: 0.3rem;
-  color: var(--color-text);
-  font-size: 0.88rem;
+.main-nav a {
+  padding-block: 0.65rem;
   text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
-nav a:hover {
+.main-nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-color: var(--color-warm-highlight);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.55em;
+}
+
+.main-nav a:hover {
+  color: var(--color-warm-highlight);
+}
+
+.main-nav a:last-child {
+  border-left: 1px solid #ffffff35;
+  padding-left: 1.9rem;
+}
+
+.main-nav span {
+  margin-left: 0.55rem;
+}
+
+/* Hero art is decorative; all meaning and all actions remain real HTML text. */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-art {
+  position: absolute;
+  inset: 0 0 0 25%;
+  background: radial-gradient(ellipse at 80% 35%, #6f80534f, transparent 65%), linear-gradient(135deg, var(--color-forest-light), var(--color-forest));
+}
+
+.hero-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 68% center;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #10271f 4%, #10271ff2 29%, #10271f95 49%, #10271f08 77%), linear-gradient(0deg, #10271f 0%, transparent 32%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  min-height: 650px;
+  padding-block: 5rem 5.5rem;
+}
+
+.hero-copy {
+  width: 61%;
+}
+
+.hero .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1.7rem;
+}
+
+.small-rule {
+  width: 1.7rem;
+  height: 1px;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 4.8vw, 4.65rem);
+  margin-bottom: 1.7rem;
+  line-height: 1.1;
+}
+
+.hero h1 em, .section-heading h2 em {
+  font-style: normal;
+  color: var(--color-warm-highlight);
+}
+
+.hero-description {
+  max-width: 28rem;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: #e0e7df;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.2rem 1.7rem;
+  margin-top: 2rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.85rem 1.3rem;
+  background: var(--color-accent);
+  color: var(--color-on-dark);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+.button:hover {
+  background: #89382d;
+}
+
+.quiet-link {
+  font-size: 0.78rem;
+  text-decoration: none;
+  padding-block: 0.65rem;
+}
+
+.quiet-link:hover {
   text-decoration: underline;
 }
 
-/* Introduction: the complete definition sits beside an uncropped real photograph. */
-.introduction {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  align-items: center;
-  gap: 3rem;
-  padding-block: 2.2rem;
+.quiet-link span {
+  margin-left: 0.7rem;
 }
 
-.table-photo, .dice-photo {
+.hero-reassurance {
+  font-size: 0.72rem;
+  color: var(--color-muted-on-dark);
+  margin-top: 1.25rem;
+}
+
+.hero-scene-note {
+  position: absolute;
+  right: 0;
+  bottom: 4.5rem;
+  font-size: 0.75rem;
+  text-align: right;
+  text-shadow: 0 1px 7px #000;
+}
+
+.hero-scene-note .eyebrow {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.hero-bottom {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.7rem 2rem;
+  padding-block: 1.3rem;
+  border-top: 1px solid #ffffff25;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--color-muted-on-dark);
+}
+
+.hero-bottom span span {
+  margin-inline: 0.8rem;
+  color: var(--color-warm-highlight);
+}
+
+/* A featured guide and a compact chapter index, rather than repeated cards. */
+.guide-feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.guide-feature > *, .next-chapter > *, .section-heading > * {
+  min-width: 0;
+}
+
+.feature-intro .eyebrow, .next-chapter .eyebrow {
+  color: var(--color-accent);
+}
+
+.feature-intro h2 {
+  margin-bottom: 1.5rem;
+}
+
+.feature-intro > p:not(.eyebrow) {
+  max-width: 28rem;
+  color: var(--color-muted);
+}
+
+.text-link, .light-link {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding-block: 0.6rem;
+}
+
+.text-link span, .light-link span {
+  display: inline-block;
+  margin-left: 1.3rem;
+}
+
+.chapter-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chapter-list li {
+  border-bottom: 1px solid var(--color-line);
+}
+
+.chapter-list li:first-child {
+  border-top: 1px solid var(--color-line);
+}
+
+.chapter-list a {
+  display: grid;
+  grid-template-columns: 1.7rem 1fr 1rem;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 1.4rem;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.chapter-list a:hover strong {
+  color: var(--color-accent);
+}
+
+.chapter-number {
+  font-size: 0.7rem;
+  color: var(--color-accent);
+}
+
+.chapter-list strong {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.chapter-list a > span > span {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+.chapter-arrow {
+  font-size: 1.2rem;
+}
+
+/* The same locked-door moment connects the conversation and imagined scene. */
+.story-section {
+  background: linear-gradient(140deg, var(--color-forest-light), var(--color-forest) 65%);
+}
+
+.section-heading {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 5rem;
+  align-items: end;
+  margin-bottom: 2.5rem;
+}
+
+.section-heading h2 {
+  margin-bottom: 0;
+}
+
+.section-heading > p {
+  max-width: 24rem;
+  color: var(--color-muted-on-dark);
+  font-size: 0.95rem;
+}
+
+.story-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.story-pair figure {
+  min-width: 0;
   margin: 0;
 }
 
-/* Content groups use spacing and reading widths instead of repeated divider lines. */
+.conversation, .story-image {
+  min-height: 445px;
+}
+
+.conversation {
+  background: var(--color-background);
+  color: var(--color-text);
+  padding: 2.1rem 2.5rem;
+  border-radius: 3px;
+}
+
+.panel-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.conversation .panel-label {
+  color: var(--color-accent);
+}
+
+.conversation-intro {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin-bottom: 1.6rem;
+}
+
+.conversation dl {
+  border-left: 1px solid var(--color-line);
+  padding-left: 1.1rem;
+}
+
+.conversation dt {
+  margin-top: 0.8rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+}
+
+.conversation dd {
+  margin: 0.2rem 0 0;
+  font-size: 0.86rem;
+}
+
+.conversation-note {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+.story-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  background: radial-gradient(ellipse at 70% 30%, #b5ab6960, transparent 60%), var(--color-forest-light);
+}
+
+.story-image img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 78% center;
+}
+
+.story-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, #10271fe8, transparent 65%);
+  pointer-events: none;
+}
+
+.story-image-label {
+  position: absolute;
+  z-index: 1;
+  left: 2rem;
+  right: 2rem;
+  bottom: 1.8rem;
+  text-shadow: 0 1px 8px #0008;
+}
+
+.story-image-label .panel-label {
+  color: var(--color-warm-highlight);
+}
+
+.story-image-label > p:last-child {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.story-pair figcaption {
+  margin-top: 0.8rem;
+  font-size: 0.75rem;
+  color: var(--color-muted-on-dark);
+}
+
+.story-followup {
+  margin-top: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.story-followup p {
+  max-width: 42rem;
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-muted-on-dark);
+}
+
+.story-followup a {
+  flex-shrink: 0;
+}
+
+.next-chapter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.next-chapter h2 {
+  margin: 0;
+}
+
+.next-chapter > div:last-child > p {
+  color: var(--color-muted);
+}
+
+/* The guide retains its original semantic sections, lists, and comparison table. */
+.guide-main {
+  max-width: 960px;
+  padding-bottom: 3rem;
+}
+
+.guide-heading {
+  padding-top: 3rem;
+}
+
+.back-link {
+  font-size: 0.75rem;
+}
+
+.guide-heading .eyebrow {
+  margin-top: 2.5rem;
+  color: var(--color-accent);
+}
+
+.guide-deck {
+  max-width: 38rem;
+  color: var(--color-muted);
+}
+
+.topic-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin-block: 1.8rem 3rem;
+  padding-block: 1rem;
+  border-block: 1px solid var(--color-line);
+}
+
+.topic-nav a {
+  font-size: 0.8rem;
+  padding-block: 0.35rem;
+}
+
+.guide-main h1 {
+  font-size: clamp(2.7rem, 5.5vw, 4.2rem);
+  max-width: 17ch;
+}
+
+.guide-main h2 {
+  font-size: clamp(1.9rem, 3.5vw, 2.7rem);
+}
+
+.guide-main p {
+  max-width: 70ch;
+}
+
+.introduction {
+  padding-bottom: 2rem;
+}
+
 .content-section {
-  padding-block: 1.7rem;
+  padding-block: 2.5rem;
+  border-top: 1px solid var(--color-line);
 }
 
 .reading-section {
@@ -160,57 +691,53 @@ nav a:hover {
 
 .section-introduction {
   max-width: 48rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.7rem;
 }
 
-/* One subtle highlight distinguishes the concrete castle example from its explanation. */
-.castle-example {
-  padding: 1.3rem 1.5rem 0.3rem;
-  margin-block: 1.5rem;
+.castle-example, .beginner-resources {
+  padding: 1.6rem;
+  margin-block: 1.6rem 0.5rem;
   background: var(--color-surface);
+  border-left: 3px solid var(--color-accent);
 }
 
-/* Parallel adventure activities share a grid without individual boxes. */
 .activity-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.8rem;
+  gap: 1.6rem;
 }
 
 .activity-grid h3 {
-  margin-bottom: 0.65rem;
   color: var(--color-accent);
 }
 
-.campaign-note {
-  max-width: 55rem;
-  margin-top: 0.5rem;
+.activity-grid p {
+  font-size: 0.9rem;
 }
 
-/* Character data belongs in a table. Subtle row rules support comparison. */
+.campaign-note {
+  margin-top: 1.2rem;
+}
+
 .character-table {
   width: 100%;
   max-width: 50rem;
-  margin-top: 1.4rem;
+  margin-top: 1.5rem;
   border-collapse: collapse;
 }
 
 .character-table caption {
-  padding-bottom: 0.65rem;
-  color: var(--color-muted);
-  font-size: 0.87rem;
+  padding-bottom: 0.75rem;
   text-align: left;
+  font-size: 0.8rem;
+  color: var(--color-muted);
 }
 
 .character-table th, .character-table td {
-  padding: 0.8rem 1rem;
+  padding: 0.9rem 1rem;
   border-bottom: 1px solid var(--color-line);
   text-align: left;
   vertical-align: top;
-}
-
-.character-table th {
-  font-weight: 600;
 }
 
 .character-table thead th {
@@ -218,107 +745,217 @@ nav a:hover {
   color: var(--color-accent);
 }
 
-/* Dice: the explanation stays first in the reading order, followed by the photograph. */
-.dice-section {
-  display: grid;
-  grid-template-columns: 1.25fr 0.85fr;
-  align-items: center;
-  gap: 3rem;
-}
-
 .roll-example {
-  padding: 0.8rem 1rem;
+  padding: 1.1rem 1.3rem;
   background: var(--color-example);
+  font-size: 1.15rem;
 }
 
-/* Official resources follow the essentials in the same comfortable reading width. */
-.getting-started {
-  max-width: 50rem;
-}
-
-/* Native list markers show sequence for ol and simple grouping for ul. */
 .gameplay-steps, .session-checklist, .beginner-resources ul {
-  margin: 0 0 1rem;
-  padding-left: 1.2rem;
+  padding-left: 1.3rem;
+  margin-bottom: 1.5rem;
 }
 
 .gameplay-steps li, .session-checklist li, .beginner-resources li {
   margin-bottom: 0.7rem;
 }
 
-.beginner-resources {
-  margin-top: 1.2rem;
-  padding: 1.3rem 1.3rem 0.3rem;
-  background: var(--color-surface);
-}
-
-.beginner-resources p, .beginner-resources li {
-  font-size: 0.9rem;
-}
-
-/* A small footer follows the article without adding another content panel. */
+/* Shared footer. All links lead to content that exists in this milestone. */
 .site-footer {
+  padding-block: 3.2rem;
+}
+
+.footer-inner {
   display: flex;
   justify-content: space-between;
-  align-items: start;
-  gap: 2rem;
-  padding-block: 1.5rem;
-  font-size: 0.76rem;
+  gap: 3rem;
 }
 
-.site-footer p {
-  max-width: 45rem;
-  margin-bottom: 0;
+.footer-brand {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.9rem;
+  letter-spacing: -0.04em;
+  text-decoration: none;
 }
 
-.site-footer > a {
-  flex-shrink: 0;
+.footer-brand span {
+  color: var(--color-warm-highlight);
 }
 
-/* Responsive changes: stack related content when side-by-side text gets cramped. */
-@media (max-width: 900px) {
-  .site-header {
-    align-items: start;
-    flex-direction: column;
-    gap: 0.7rem;
+.footer-inner p {
+  margin-top: 0.8rem;
+  font-size: 0.72rem;
+  color: var(--color-muted-on-dark);
+}
+
+.footer-inner nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem 2rem;
+  align-content: start;
+  padding-top: 0.5rem;
+}
+
+.footer-inner nav a {
+  padding-block: 0.3rem;
+  font-size: 0.75rem;
+  text-decoration: none;
+}
+
+.footer-inner nav a:hover {
+  text-decoration: underline;
+}
+
+/* Stack when content no longer has comfortable room; keep the source order. */
+@media (max-width: 1000px) {
+  .guide-feature, .next-chapter {
+    gap: 3rem;
   }
-
-  .introduction, .dice-section {
-    gap: 1.8rem;
+  .hero-copy {
+    width: 70%;
   }
-
-  .activity-grid {
-    gap: 1.2rem;
+  .hero-inner {
+    min-height: 620px;
+  }
+  .hero-scene-note {
+    display: none;
+  }
+  .section-heading {
+    gap: 2.5rem;
+  }
+  .conversation {
+    padding: 1.8rem;
   }
 }
 
 @media (max-width: 700px) {
-  .introduction, .activity-grid, .dice-section {
+  .page-width {
+    width: 88%;
+  }
+  .header-inner {
+    min-height: 0;
+    padding-block: 1.2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .site-name {
+    font-size: 1.2rem;
+  }
+  .main-nav {
+    width: 100%;
+    gap: 1.5rem;
+    justify-content: space-between;
+  }
+  .main-nav a {
+    font-size: 0.75rem;
+  }
+  .main-nav a:last-child {
+    padding-left: 1.3rem;
+  }
+  .hero-inner {
+    min-height: 0;
+    padding-block: 3rem 15rem;
+  }
+  .hero-copy {
+    width: 100%;
+  }
+  .hero h1 {
+    font-size: clamp(2.35rem, 8.5vw, 3.6rem);
+  }
+  .hero .eyebrow {
+    font-size: 0.61rem;
+  }
+  .hero-description {
+    max-width: 32rem;
+    font-size: 0.95rem;
+  }
+  .hero-actions {
+    gap: 0.6rem 1.1rem;
+  }
+  .button {
+    font-size: 0.8rem;
+  }
+  .hero-art {
+    inset: 45% 0 0;
+  }
+  .hero-art img {
+    object-position: 72% center;
+  }
+  .hero::after {
+    background: linear-gradient(180deg, #10271f 35%, #10271fef 51%, #10271f00 76%, #10271fdb 100%);
+  }
+  .hero-bottom {
+    padding-block: 1rem;
+  }
+  .guide-feature, .next-chapter, .section-heading, .story-pair {
     grid-template-columns: 1fr;
   }
-
-  .introduction {
-    padding-block: 1.5rem;
+  .guide-feature, .next-chapter {
+    gap: 2rem;
   }
-
-  .content-section {
-    padding-block: 1.3rem;
+  .section-heading {
+    gap: 1.3rem;
   }
-
-  .castle-example {
-    padding-inline: 1rem;
+  .section-heading > p {
+    max-width: 36rem;
   }
-
-  .character-table {
-    font-size: 0.92rem;
+  .story-pair {
+    gap: 2rem;
   }
-
-  .character-table th, .character-table td {
-    padding: 0.6rem 0.5rem;
+  .conversation {
+    padding: 1.8rem;
+    min-height: 0;
   }
-
-  .site-footer {
+  .story-image {
+    min-height: 370px;
+  }
+  .story-followup {
     flex-direction: column;
+    align-items: start;
     gap: 0.8rem;
+  }
+  .chapter-list a {
+    padding-block: 1.2rem;
+    gap: 0.6rem;
+  }
+  .chapter-list strong {
+    font-size: 0.93rem;
+  }
+  .chapter-list a > span > span {
+    font-size: 0.7rem;
+  }
+  .activity-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .character-table {
+    font-size: 0.84rem;
+  }
+  .character-table th, .character-table td {
+    padding: 0.7rem 0.4rem;
+  }
+  .character-table th:first-child {
+    white-space: nowrap;
+  }
+  .castle-example, .beginner-resources {
+    padding: 1.2rem;
+  }
+  .content-section {
+    padding-block: 2rem;
+  }
+  .footer-inner {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .footer-inner nav {
+    gap: 0.5rem 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .button {
+    transition: background-color 150ms ease;
   }
 }
