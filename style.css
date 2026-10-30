@@ -68,7 +68,8 @@ a:hover {
 }
 
 :focus-visible {
-  outline: none;
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
 }
 
 img {
