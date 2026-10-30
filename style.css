@@ -1422,6 +1422,244 @@ main:focus-visible h1 {
   color: var(--color-warm-highlight);
 }
 
+/* The interactive D20 is separate from the static worked-example fallback. */
+.dice-explorer {
+  padding: 2rem;
+  margin-block: 1.7rem;
+  border-radius: 4px;
+  background: radial-gradient(ellipse at 20% 50%, #466b4c60, transparent 65%), var(--color-forest);
+}
+
+.dice-explorer[hidden] {
+  display: none;
+}
+
+.dice-explorer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #ffffff30;
+}
+
+.dice-explorer-header .eyebrow {
+  margin-bottom: 0.5rem;
+}
+
+.dice-explorer-header h3 {
+  margin-bottom: 0;
+  font-size: 1.8rem;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+.dice-target {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 0 0.8rem;
+  flex-shrink: 0;
+  align-items: center;
+  margin: 0;
+  color: var(--color-muted-on-dark);
+  font-size: 0.7rem;
+}
+
+.dice-target strong {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  font-size: 2.6rem;
+  line-height: 1.2;
+  color: var(--color-warm-highlight);
+}
+
+.dice-workbench {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.85fr) minmax(0, 1.15fr);
+  gap: 2.5rem;
+  align-items: center;
+  margin-block: 1.7rem;
+}
+
+.dice-controls, .dice-details {
+  min-width: 0;
+}
+
+.dice-controls {
+  text-align: center;
+}
+
+.digital-die {
+  margin-bottom: 1.4rem;
+}
+
+.digital-die-face {
+  position: relative;
+  width: min(100%, 240px);
+  aspect-ratio: 120 / 130;
+  margin-inline: auto;
+}
+
+.digital-die-face svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  stroke: var(--color-warm-highlight);
+  stroke-width: 0.8;
+}
+
+.digital-die-face strong {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Natural-roll recognition is a quiet visual cue, independent of the check's outcome. */
+.digital-die-face[data-natural="20"] svg {
+  stroke: #f7d5a4;
+  stroke-width: 1.2;
+  filter: drop-shadow(0 0 6px #e9bd9455);
+}
+
+.digital-die-face[data-natural="20"] strong {
+  color: var(--color-warm-highlight);
+}
+
+.digital-die-face[data-natural="1"] svg {
+  stroke: var(--color-muted-on-dark);
+}
+
+.digital-die figcaption {
+  margin-top: 0.8rem;
+  color: var(--color-muted-on-dark);
+  font-size: 0.75rem;
+}
+
+.digital-die figcaption span {
+  padding-inline: 0.5rem;
+  color: var(--color-warm-highlight);
+}
+
+.dice-roll {
+  min-height: 48px;
+  scroll-margin-block: 1rem;
+  border: 1px solid transparent;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.modifier-control label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.modifier-control label span {
+  color: var(--color-warm-highlight);
+  font-size: 1.8rem;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+.modifier-control input {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  margin: 0;
+  accent-color: var(--color-warm-highlight);
+  cursor: pointer;
+}
+
+.modifier-control p {
+  color: var(--color-muted-on-dark);
+  font-size: 0.75rem;
+  line-height: 1.6;
+  margin-bottom: 1.4rem;
+}
+
+.dice-feedback {
+  padding: 1.3rem;
+  border-left: 3px solid var(--color-warm-highlight);
+  border-radius: 3px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  overflow-anchor: none;
+}
+
+.dice-feedback .eyebrow {
+  margin-bottom: 0.8rem;
+  color: var(--color-muted);
+  font-size: 0.65rem;
+}
+
+.dice-feedback .dice-calculation {
+  margin-bottom: 1rem;
+  font-size: clamp(1.35rem, 3vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+  font-variant-numeric: tabular-nums;
+}
+
+.dice-feedback .dice-calculation-key {
+  margin-bottom: 0.3rem;
+  color: var(--color-muted);
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.dice-feedback h4 {
+  margin: 0 0 0.7rem;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.dice-feedback > p:last-child, #dice-outcome-story {
+  font-size: 0.875rem;
+  line-height: 1.65;
+}
+
+#dice-outcome-story {
+  margin-bottom: 0;
+}
+
+.dice-natural-note {
+  margin: 1rem 0 0;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--color-line);
+  color: var(--color-muted);
+}
+
+.dice-feedback[data-outcome="success"] .eyebrow {
+  color: var(--color-forest);
+}
+
+.dice-feedback[data-outcome="failure"] {
+  border-left-color: var(--color-accent);
+}
+
+.dice-feedback[data-outcome="failure"] .eyebrow {
+  color: var(--color-accent);
+}
+
+.dice-scope-note {
+  padding-top: 1.3rem;
+  border-top: 1px solid #ffffff30;
+  color: var(--color-muted-on-dark);
+  font-size: 0.75rem;
+  line-height: 1.65;
+}
+
 /* Chapter 5: practical preparation and a real next step. */
 .ready-intro {
   display: grid;
@@ -1981,6 +2219,51 @@ main:focus-visible h1 {
   }
   .target-result .outcome-mark {
     display: none;
+  }
+  .dice-explorer {
+    padding: 1.2rem;
+  }
+  .dice-explorer-header {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .dice-explorer-header h3 {
+    font-size: 1.5rem;
+  }
+  .dice-target {
+    font-size: 0.65rem;
+  }
+  .dice-target strong {
+    font-size: 2rem;
+  }
+  .dice-workbench {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .dice-controls {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 1rem;
+    align-items: center;
+  }
+  .digital-die {
+    margin-bottom: 0;
+  }
+  .digital-die-face {
+    width: min(100%, 160px);
+  }
+  .digital-die-face strong {
+    font-size: 3rem;
+  }
+  .digital-die figcaption {
+    font-size: 0.65rem;
+  }
+  .dice-roll {
+    gap: 0.7rem;
+    padding-inline: 1rem;
+  }
+  .dice-feedback {
+    padding: 1rem;
   }
   .ready-intro {
     grid-template-columns: 1fr;

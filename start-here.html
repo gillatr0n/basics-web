@@ -201,9 +201,9 @@
           <h3>How dice work</h3>
           <p>Players roll dice when an action could succeed or fail and the outcome matters. The roll helps the group find out what happens, such as whether your character spots a hidden entrance.</p>
           <p>A <strong>D20</strong> is a die with twenty sides. You often add a number from your character sheet to the roll. This adjustment is called a <strong>modifier</strong> and can be a bonus or a penalty.</p>
-          <p>Suppose the DM sets a target number of <strong>15</strong> to find a hidden entrance:</p>
-          <!-- Static worked example. Real controls and calculation behavior belong to M3-C. -->
-          <figure class="check-example dark-surface">
+          <p>The <strong>Difficulty Class (DC)</strong> is the target that represents a task's difficulty. The DM generally sets it for an ability check. Your die result plus applicable modifiers must meet or beat the DC. Here, finding the hidden entrance is <strong>DC 15: medium difficulty</strong> in the standard examples.</p>
+          <!-- This worked example remains available if the script cannot load. -->
+          <figure id="dice-fallback" class="check-example dark-surface">
             <div class="check-context"><p class="eyebrow">An ability check / Back at the castle</p><p>Can you spot a hidden entrance in the castle wall?</p></div>
             <div class="roll-equation" aria-hidden="true">
               <div><span class="roll-label">On the D20</span><div class="die-result"><svg viewBox="0 0 120 130" fill="none" focusable="false"><path d="M60 4 114 34v62l-54 30L6 96V34Z"/><path d="m60 4 32 82H28L60 4ZM6 34l22 52L6 96m108-62L92 86l22 10M28 86l32 40 32-40M6 34h108"/></svg><strong>12</strong></div><span>The die result</span></div>
@@ -214,10 +214,52 @@
             </div>
             <figcaption class="roll-example">
               <strong>12</strong> on the die + <strong>3</strong> bonus = <strong>15</strong> total
-              <div class="target-result"><span>Target <strong>15</strong></span><p><strong>You find the entrance.</strong><br>The total meets the target.</p><span class="outcome-mark" aria-hidden="true">✓</span></div>
+              <div class="target-result"><span>DC <strong>15</strong></span><p><strong>You find the entrance.</strong><br>The total meets the DC.</p><span class="outcome-mark" aria-hidden="true">✓</span></div>
             </figcaption>
           </figure>
-          <p>Meeting or beating the target succeeds, so you find the entrance. A lower total would fail. Not every action needs a roll; the DM uses the rules to decide when dice are needed.</p>
+
+          <section id="dice-explorer" class="dice-explorer dark-surface" aria-labelledby="dice-explorer-heading" hidden>
+            <header class="dice-explorer-header">
+              <div><p class="eyebrow">Try an ability check</p><h3 id="dice-explorer-heading">Search the castle wall.</h3></div>
+              <p class="dice-target"><span>Difficulty Class (DC)</span><strong>15</strong><span>Medium</span></p>
+            </header>
+            <div class="dice-workbench">
+              <div class="dice-controls">
+                <figure class="digital-die">
+                  <!-- The live result below supplies the accessible calculation and outcome. -->
+                  <div id="digital-die-face" class="digital-die-face" aria-hidden="true">
+                    <svg id="digital-die-art" viewBox="0 0 120 130" fill="none" focusable="false">
+                      <defs><linearGradient id="d20-shading" x1="10" y1="10" x2="105" y2="120" gradientUnits="userSpaceOnUse"><stop stop-color="#3b6950"/><stop offset="1" stop-color="#10271f"/></linearGradient></defs>
+                      <path d="M60 4 114 34v62l-54 30L6 96V34Z" fill="url(#d20-shading)"/>
+                      <path d="m60 4 32 82H28Z" fill="#19392e"/>
+                      <path d="M6 34h108L60 4Zm22 52 32 40 32-40Z" fill="#e9bd9414"/>
+                      <path d="M60 4 114 34v62l-54 30L6 96V34Z M60 4 92 86H28L60 4ZM6 34l22 52L6 96m108-62L92 86l22 10M28 86l32 40 32-40M6 34h108"/>
+                    </svg>
+                    <strong id="digital-die-value">—</strong>
+                  </div>
+                  <figcaption>Natural D20 result <span aria-hidden="true">/</span> 1–20</figcaption>
+                </figure>
+                <button id="roll-d20" class="button dice-roll" type="button" aria-controls="dice-feedback">Roll D20 <span aria-hidden="true">↻</span></button>
+              </div>
+              <div class="dice-details">
+                <div class="modifier-control">
+                  <label for="dice-modifier">Character modifier <span id="dice-modifier-value" aria-hidden="true">+3</span></label>
+                  <input id="dice-modifier" type="range" min="-5" max="10" step="1" value="3" aria-valuetext="plus 3" aria-describedby="dice-modifier-help">
+                  <p id="dice-modifier-help">Try −5 to +10 in this example. Changing the modifier recalculates your last roll.</p>
+                </div>
+                <div id="dice-feedback" class="dice-feedback" role="status" aria-live="polite" aria-atomic="true">
+                  <p id="dice-roll-label" class="eyebrow">Ready for your first roll</p>
+                  <p class="dice-calculation-key">D20 result + modifier = total</p>
+                  <p id="dice-calculation" class="dice-calculation">Waiting for a roll</p>
+                  <h4 id="dice-outcome-title">What will you discover?</h4>
+                  <p id="dice-outcome-story">Roll to see whether your character spots a hidden entrance in the castle wall.</p>
+                  <p id="dice-natural-note" class="dice-natural-note" hidden></p>
+                </div>
+              </div>
+            </div>
+            <p class="dice-scope-note">This is a simplified ability check with one D20 and one modifier. Other rules can affect a check; in a real game, your DM decides whether another attempt makes sense.</p>
+          </section>
+          <p>A <strong>natural 20</strong> or <strong>natural 1</strong> is the number on the die before modifiers. On attack rolls, a 20 automatically hits and is a critical hit; a 1 automatically misses. Ordinary ability checks still compare the total with the DC. The DM decides when a roll is needed.</p>
         </section>
 
         <section id="getting-started" class="lesson-chapter" aria-labelledby="starting-heading">
