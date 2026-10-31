@@ -2285,12 +2285,26 @@ main:focus-visible h1 {
   }
 }
 
-/* Keep the shared navigation on one row on narrow phones. */
+/* Keep navigation on one row and give encounter actions full-width labels on narrow phones. */
 @media (max-width: 400px) {
   .main-nav {
     gap: 0.5rem;
   }
   .main-nav a:last-child {
     padding-left: 0.7rem;
+  }
+  .encounter-choices {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .encounter-choice {
+    flex-direction: row;
+    align-items: center;
+    min-height: 52px;
+    padding: 0.75rem 0.8rem;
+    scroll-margin-block: 1rem;
+  }
+  .encounter-choice small {
+    flex-shrink: 0;
   }
 }

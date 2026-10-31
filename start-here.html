@@ -110,7 +110,8 @@
           <div id="castle-encounter" class="encounter-stage dark-surface">
             <div class="encounter-setting">
               <div class="encounter-scene">
-                <img src="images/castle-door.webp" srcset="images/castle-door-small.webp 768w, images/castle-door.webp 1536w" sizes="(max-width: 1000px) 88vw, (max-width: 1363px) calc(88vw - 228px), 972px" width="1536" height="1024" loading="lazy" alt="A closed oak door with a keyhole beneath a weathered stone arch, with a narrow window beside it.">
+                <!-- Auto uses the lazy image's actual width in interactive and static layouts; explicit sizes support older browsers. -->
+                <img src="images/castle-door.webp" srcset="images/castle-door-small.webp 768w, images/castle-door.webp 1536w" sizes="auto, (max-width: 1000px) 88vw, (max-width: 1363px) calc(88vw - 228px), 972px" width="1536" height="1024" loading="lazy" alt="A closed oak door with a keyhole beneath a weathered stone arch, with a narrow window beside it.">
                 <p class="encounter-scene-caption"><span class="eyebrow">Encounter 01</span>At the threshold</p>
               </div>
               <div class="encounter-copy">
