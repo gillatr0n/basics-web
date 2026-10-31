@@ -12,6 +12,11 @@
   --color-on-dark: #f5f0e7;
   --color-muted-on-dark: #bfcec4;
   --color-warm-highlight: #e9bd94;
+  --color-action-hover: #89382d;
+  --color-divider-on-dark: #ffffff30;
+  --content-max-width: 1200px;
+  --page-width: 88%;
+  --nav-target-height: 2.75rem;
   --font-body: "Manrope", "Segoe UI", Arial, sans-serif;
   --font-heading: var(--font-body);
 }
@@ -77,7 +82,7 @@ section, main, aside {
 }
 
 .page-width {
-  width: min(88%, 1200px);
+  width: min(var(--page-width), var(--content-max-width));
   margin-inline: auto;
 }
 
@@ -148,6 +153,7 @@ main:focus-visible h1 {
 .header-inner {
   min-height: 100px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
@@ -188,6 +194,9 @@ main:focus-visible h1 {
 }
 
 .main-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--nav-target-height);
   padding-block: 0.65rem;
   text-decoration: none;
   font-size: 0.8rem;
@@ -205,7 +214,8 @@ main:focus-visible h1 {
   color: var(--color-warm-highlight);
 }
 
-.main-nav a:last-child {
+/* This treatment belongs to Start Here, regardless of its position. */
+.main-nav .nav-start {
   border-left: 1px solid #ffffff35;
   padding-left: 1.9rem;
 }
@@ -309,7 +319,7 @@ main:focus-visible h1 {
 }
 
 .button:hover {
-  background: #89382d;
+  background: var(--color-action-hover);
 }
 
 .quiet-link {
@@ -509,7 +519,7 @@ main:focus-visible h1 {
 .story-conversation {
   margin-top: 1rem;
   padding-block: 1.5rem;
-  border-block: 1px solid #ffffff30;
+  border-block: 1px solid var(--color-divider-on-dark);
 }
 
 .story-conversation > .eyebrow {
@@ -665,7 +675,7 @@ main:focus-visible h1 {
 
 .opening-scene-note {
   padding-top: 1rem;
-  border-top: 1px solid #ffffff30;
+  border-top: 1px solid var(--color-divider-on-dark);
   color: var(--color-muted-on-dark);
   font-size: 0.75rem;
 }
@@ -1017,7 +1027,7 @@ main:focus-visible h1 {
 
 .encounter-interactive {
   padding: 1.5rem;
-  border-left: 1px solid #ffffff30;
+  border-left: 1px solid var(--color-divider-on-dark);
 }
 
 .encounter-interactive[hidden] {
@@ -1260,7 +1270,7 @@ main:focus-visible h1 {
 .class-copy blockquote {
   margin: auto 0 0;
   padding-top: 1rem;
-  border-top: 1px solid #ffffff30;
+  border-top: 1px solid var(--color-divider-on-dark);
   font-size: 0.85rem;
   line-height: 1.65;
 }
@@ -1291,7 +1301,7 @@ main:focus-visible h1 {
 }
 
 .check-context {
-  border-bottom: 1px solid #ffffff30;
+  border-bottom: 1px solid var(--color-divider-on-dark);
   padding-bottom: 1rem;
 }
 
@@ -1440,7 +1450,7 @@ main:focus-visible h1 {
   align-items: start;
   gap: 1.5rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid #ffffff30;
+  border-bottom: 1px solid var(--color-divider-on-dark);
 }
 
 .dice-explorer-header .eyebrow {
@@ -1654,7 +1664,7 @@ main:focus-visible h1 {
 
 .dice-scope-note {
   padding-top: 1.3rem;
-  border-top: 1px solid #ffffff30;
+  border-top: 1px solid var(--color-divider-on-dark);
   color: var(--color-muted-on-dark);
   font-size: 0.75rem;
   line-height: 1.65;
@@ -1845,7 +1855,7 @@ main:focus-visible h1 {
 
 @media (max-width: 700px) {
   .page-width {
-    width: 88%;
+    width: var(--page-width);
   }
   .header-inner {
     min-height: 0;
@@ -1864,7 +1874,7 @@ main:focus-visible h1 {
   .main-nav a {
     font-size: 0.75rem;
   }
-  .main-nav a:last-child {
+  .main-nav .nav-start {
     padding-left: 1.3rem;
   }
   .hero-inner {
@@ -1965,7 +1975,7 @@ main:focus-visible h1 {
   }
   .encounter-interactive {
     border-left: 0;
-    border-top: 1px solid #ffffff30;
+    border-top: 1px solid var(--color-divider-on-dark);
   }
 }
 
@@ -2285,12 +2295,12 @@ main:focus-visible h1 {
   }
 }
 
-/* Keep navigation on one row and give encounter actions full-width labels on narrow phones. */
+/* Tighten navigation gaps and give encounter actions full-width labels on narrow phones. */
 @media (max-width: 400px) {
   .main-nav {
     gap: 0.5rem;
   }
-  .main-nav a:last-child {
+  .main-nav .nav-start {
     padding-left: 0.7rem;
   }
   .encounter-choices {
